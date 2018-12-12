@@ -12,10 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20181211100931) do
 
-  create_table "contents", force: :cascade do |t|
+  create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "subtitle"
-    t.text     "body"
+    t.text     "body",       limit: 65535
     t.string   "link"
     t.string   "category"
     t.string   "keyword"
@@ -29,19 +29,19 @@ ActiveRecord::Schema.define(version: 20181211100931) do
     t.boolean  "hardcare"
     t.boolean  "makeup"
     t.boolean  "idol"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "brand"
     t.integer  "price"
-    t.text     "body"
+    t.text     "body",       limit: 65535
     t.string   "link"
     t.string   "category"
     t.string   "keyword"
-    t.float    "score"
+    t.float    "score",      limit: 24
     t.boolean  "normal"
     t.boolean  "dry"
     t.boolean  "oily"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20181211100931) do
     t.boolean  "hardcare"
     t.boolean  "makeup"
     t.boolean  "idol"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
