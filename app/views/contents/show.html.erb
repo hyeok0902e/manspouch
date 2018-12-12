@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @content.title %></h2>
+<p><%= @content.subtitle %></p>
+<p>
+  <% @tags.each do |tag| %>
+    <span>#<%= tag.name %></span>&nbsp
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_content_path(@content) %> |
 <%= link_to 'Back', contents_path %>

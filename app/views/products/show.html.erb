@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @product.name %></h2>
+<p><%= @product.brand %></p>
+<p>
+  <% @tags.each do |tag| %>
+    <span>#<%= tag.name %></span>&nbsp
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

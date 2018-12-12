@@ -10,6 +10,7 @@ class ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
+    @tags = @content.tags
   end
 
   # GET /contents/new
@@ -69,6 +70,8 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.fetch(:content, {})
+      params.require(:content).permit(:title, :subtitle, :body, :link, :category, :keyword,
+                                      :normal, :dry, :oily, :complex, :sensitive,
+                                      :notcare, :basecare, :hardcare, :makeup, :idol)
     end
 end

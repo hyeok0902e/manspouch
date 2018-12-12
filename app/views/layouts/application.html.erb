@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <header>
+      <div class="main_logo">
+        <a href="/">Manspouch</a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><%= link_to "Contents", contents_path  %></li>
+          <li><%= link_to "Products", products_path  %></li>
+        </ul>
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>

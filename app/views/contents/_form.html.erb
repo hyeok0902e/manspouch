@@ -11,6 +11,103 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle %>
+  </div>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :keyword %>
+    <%= f.text_field :keyword %>
+  </div>
+
+  <div class="field">
+    <%= f.label :normal %>
+    <%= f.radio_button :normal, true %>
+    <%= f.label :normal, 'yes' %>
+    <%= f.radio_button :normal, false %>
+    <%= f.label :normal, 'no' %>
+  </div>
+  <div class="field">
+    <%= f.label :dry %>
+    <%= f.radio_button :dry, true %>
+    <%= f.label :dry, 'yes' %>
+    <%= f.radio_button :dry, false %>
+    <%= f.label :dry, 'no' %>
+  </div>
+  <div class="field">
+    <%= f.label :oily %>
+    <%= f.radio_button :oily, true %>
+    <%= f.label :oily, 'yes' %>
+    <%= f.radio_button :oily, false %>
+    <%= f.label :oily, 'no' %>
+  </div>
+  <div class="field">
+    <%= f.label :complex %>
+    <%= f.radio_button :complex, true %>
+    <%= f.label :complex, 'yes' %>
+    <%= f.radio_button :complex, false %>
+    <%= f.label :complex, 'no' %>
+  </div>
+  <div class="field">
+    <%= f.label :sensitive%>
+    <%= f.radio_button :sensitive, true %>
+    <%= f.label :sensitive, 'yes' %>
+    <%= f.radio_button :sensitive, false %>
+    <%= f.label :sensitive, 'no' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notcare %>
+    <%= f.radio_button :notcare, true %>
+    <%= f.label :notcare, 'yes' %>
+    <%= f.radio_button :notcare, false %>
+    <%= f.label :notcare, 'no' %>
+  </div>
+  <div class="field">
+    <%= f.label :basecare %>
+    <%= f.radio_button :basecare, true %>
+    <%= f.label :basecare, 'yes' %>
+    <%= f.radio_button :basecare, false %>
+    <%= f.label :basecare, 'no' %>
+  </div>
+  <div class="field">
+    <%= f.label :hardcare %>
+    <%= f.radio_button :hardcare, true %>
+    <%= f.label :hardcare, 'yes' %>
+    <%= f.radio_button :hardcare, false %>
+    <%= f.label :hardcare, 'no' %>
+  </div>
+  <div class="fielhardcared">
+    <%= f.label :makeup %>
+    <%= f.radio_button :makeup, true %>
+    <%= f.label :makeup, 'yes' %>
+    <%= f.radio_button :makeup, false %>
+    <%= f.label :makeup, 'no' %>
+  </div>
+  <div class="field">
+    <%= f.label :idol %>
+    <%= f.radio_button :idol, true %>
+    <%= f.label :idol, 'yes' %>
+    <%= f.radio_button :idol, false %>
+    <%= f.label :idol, 'no' %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

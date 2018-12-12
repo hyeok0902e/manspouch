@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181211100931) do
+ActiveRecord::Schema.define(version: 20181212053016) do
 
   create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20181211100931) do
     t.boolean  "idol"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "contents_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "content_id"
+    t.integer "tag_id"
+    t.index ["content_id"], name: "index_contents_tags_on_content_id", using: :btree
+    t.index ["tag_id"], name: "index_contents_tags_on_tag_id", using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -56,4 +63,21 @@ ActiveRecord::Schema.define(version: 20181211100931) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "products_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "product_id"
+    t.integer "tag_id"
+    t.index ["product_id"], name: "index_products_tags_on_product_id", using: :btree
+    t.index ["tag_id"], name: "index_products_tags_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "contents_tags", "contents"
+  add_foreign_key "contents_tags", "tags"
+  add_foreign_key "products_tags", "products"
+  add_foreign_key "products_tags", "tags"
 end
