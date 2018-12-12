@@ -21,7 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= tinymce :language => "ko" %>
+    <%= f.text_area :body, id: :content_body, class: "form-control tinymce", rows: "10" %>
+
   </div>
   <div class="field">
     <%= f.label :link %>

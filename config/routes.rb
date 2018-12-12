@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'home#index'
 
   # scaffold
@@ -22,4 +23,7 @@ Rails.application.routes.draw do
   get 'mpadmin/mpusershow'
   get 'mpadmin/contents'
   get 'mpadmin/products'
+
+  # tinymce
+  post '/tinymce_assets' => 'tinymce_assets#create'
 end

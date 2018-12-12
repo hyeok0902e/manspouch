@@ -1,4 +1,6 @@
 class MypouchController < ApplicationController
+  before_action :authenticate_user!
+
   def index
   end
 

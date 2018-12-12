@@ -2,6 +2,11 @@
 
 <h2><%= @product.name %></h2>
 <p><%= @product.brand %></p>
+
+<article>
+  <%= @product.body.html_safe %>
+</article>
+
 <p>
   <% @tags.each do |tag| %>
     <span>#<%= tag.name %></span>&nbsp

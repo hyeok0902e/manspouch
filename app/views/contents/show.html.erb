@@ -2,6 +2,11 @@
 
 <h2><%= @content.title %></h2>
 <p><%= @content.subtitle %></p>
+
+<article>
+  <%= @content.body.html_safe%>
+</article>
+
 <p>
   <% @tags.each do |tag| %>
     <span>#<%= tag.name %></span>&nbsp

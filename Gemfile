@@ -7,6 +7,13 @@ end
 
 # installed Gems
 gem 'mysql2', '~> 0.5.2'
+gem 'devise', '~> 4.5'
+gem 'tinymce-rails', '~> 4.1', '>= 4.1.10'
+gem 'tinymce-rails-langs', '~> 4.20180103'
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'fog', '~> 2.1'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'

@@ -22,3 +22,7 @@
 
 # Ignore database.yml
 /config/database.yml
+
+# Ignore aws key & fog file
+/config/application.yml
+/config/initializers/fog.rb

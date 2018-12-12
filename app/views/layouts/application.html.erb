@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <header>
       <div class="main_logo">
         <a href="/">Manspouch</a>
@@ -20,8 +23,21 @@
           <li><%= link_to "Products", products_path  %></li>
         </ul>
       </nav>
-    </header>
 
+      <div class="nav-auth">
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to 'SignOut', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'MyPouch', '/mypouch/index' %></li>
+          <% else %>
+            <li><%= link_to 'SignIn', new_user_session_path %></li>
+            <li><%= link_to 'SignUn', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    
+    <%= tinymce_assets %>
     <%= yield %>
   </body>
 </html>
