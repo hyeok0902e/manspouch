@@ -17,6 +17,7 @@
 3. 매뉴얼과 제품에 썸네일 사진 추가하기: Carrierwave, S3
 4. 매뉴얼 댓글 기능(Comments < Content)
 5. 제품 리뷰 기능 (Reviews < Product)
+6. 관리자 기능: 일반 사용자 계정과 Admin 계정 구분 → rails Gem 사용하기
 
 ### 필수 준수 사항
 1. 들여쓰기 하기 (특히, HTML & CSS)
