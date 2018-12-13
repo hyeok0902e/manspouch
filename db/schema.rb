@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181213075340) do
+ActiveRecord::Schema.define(version: 20181213083524) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
@@ -86,6 +86,17 @@ ActiveRecord::Schema.define(version: 20181213075340) do
     t.index ["tag_id"], name: "index_products_tags_on_tag_id", using: :btree
   end
 
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "score"
+    t.text     "body",       limit: 65535
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -126,4 +137,6 @@ ActiveRecord::Schema.define(version: 20181213075340) do
   add_foreign_key "contents_tags", "tags"
   add_foreign_key "products_tags", "products"
   add_foreign_key "products_tags", "tags"
+  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
 end

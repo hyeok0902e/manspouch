@@ -1,0 +1,15 @@
+<div class="">
+  <p class=""><strong><%= comment.user.nickname %></strong></p>
+  <p class=""><%= comment.body %></p>
+  <p class=""><%= time_ago_in_words(comment.created_at) %> Ago</p>
+  <% if current_user == comment.user%>
+    <p>
+      <%= link_to 'Delete', [comment.content, comment],
+                    method: :delete,
+                    class: "",
+                    data: { confirm: 'Are you sure?' }
+      %>
+    </p>
+  <% end %>
+  <hr>
+<div>

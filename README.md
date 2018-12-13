@@ -18,6 +18,7 @@
 4. 매뉴얼 댓글 기능(Comments < Content)
 5. 제품 리뷰 기능 (Reviews < Product)
 6. 관리자 기능: 일반 사용자 계정과 Admin 계정 구분 → rails Gem 사용하기
+7. Likes, Views 추가하기
 
 ### 필수 준수 사항
 1. 들여쓰기 하기 (특히, HTML & CSS)
@@ -26,4 +27,4 @@
 
 ### 로컬로 이미지 저장되게 변경해 두었습니다.(재변경은 아래 링크로 따라가면서 주석 처리해 주시면 됩니다. 링크 참조)
 1. https://code.tutsplus.com/tutorials/rails-image-upload-using-carrierwave-in-a-rails-app--cms-25183
-2. /config/initializers/fog.rb 파일 생성하고 세팅하기 → https://blog.naver.com/kbs4674/221039105137 
+2. /config/initializers/fog.rb 파일 생성하고 세팅하기 → https://blog.naver.com/kbs4674/221039105137
