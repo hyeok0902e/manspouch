@@ -11,14 +11,22 @@
 - 에디터 Gem 적용: tinymce-rails, tinymce-rails-langs (at Content, Product)
 - tinymce + S3 연동
 
+**2018-12-13**
+- 리뷰(Reivew < Product)기능 구현
+- 댓글(Comment < Content)기능 구현
+- User 정보에 프로필 사진 추가
+- Content 와 Product에 썸네일 이미지 추가
+
 ### To-Do List
-1. 사용자 정보에 프로필 사진 추가하기: Carrierwave, S3
-2. 매뉴얼, 제품 삭제 시 S3 파일 삭제되게..
-3. 매뉴얼과 제품에 썸네일 사진 추가하기: Carrierwave, S3
-4. 매뉴얼 댓글 기능(Comments < Content)
-5. 제품 리뷰 기능 (Reviews < Product)
-6. 관리자 기능: 일반 사용자 계정과 Admin 계정 구분 → rails Gem 사용하기
-7. Likes, Views 추가하기
+- Likes, Views 추가하기
+- Content, Product form.html.erb에서 field 수정하기
+- 관리자 권한 설정 추가: 일반 사용자 계정과 Admin 계정 구분 → rails Gem 사용하기
+- 태그에 링크 달기(나른한 하루 네이버 블로그 참고)
+- Validation 적용하기
+- Google Vision 연동하기
+- 매뉴얼, 제품 삭제 시 S3 파일 삭제되게..
+- 피부 분석 기능 구현
+
 
 ### 필수 준수 사항
 1. 들여쓰기 하기 (특히, HTML & CSS)
