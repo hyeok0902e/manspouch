@@ -1,11 +1,19 @@
 class ImageUploader < CarrierWave::Uploader::Base
+
+  #로컬 저장을 위해서 추가되어야 하는 라인 minimagick 사용 AWS 사용시 주석처리
+  include CarrierWave::MiniMagick
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  # storage :file
-  storage :fog
+  
+  #로컬 저장을 위해 사용하는 'file' AWS 사용시 주석 처리
+  storage :file
+
+  #AWS 저장을 위해 사용하는 'fog' local 사용시 주석 처리
+  #storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

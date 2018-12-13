@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20181212092409) do
 
-  create_table "contentimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "alt"
-    t.string   "hint"
-    t.string   "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "subtitle"
@@ -46,14 +38,6 @@ ActiveRecord::Schema.define(version: 20181212092409) do
     t.integer "tag_id"
     t.index ["content_id"], name: "index_contents_tags_on_content_id", using: :btree
     t.index ["tag_id"], name: "index_contents_tags_on_tag_id", using: :btree
-  end
-
-  create_table "productimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "alt"
-    t.string   "hint"
-    t.string   "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

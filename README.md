@@ -22,3 +22,7 @@
 ### 필수 준수 사항
 1. 들여쓰기 하기 (특히, HTML & CSS)
 -  들여쓰기 기준 => Tab 1회 / 스페이스바 금지
+
+
+### 로컬로 이미지 저장되게 변경해 두었습니다.(재변경은 아래 링크로 따라가면서 주석 처리해 주시면 됩니다. 링크 참조)
+1. https://code.tutsplus.com/tutorials/rails-image-upload-using-carrierwave-in-a-rails-app--cms-25183

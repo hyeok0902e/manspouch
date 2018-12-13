@@ -12,7 +12,13 @@ gem 'tinymce-rails', '~> 4.1', '>= 4.1.10'
 gem 'tinymce-rails-langs', '~> 4.20180103'
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
-gem 'fog', '~> 2.1'
+
+#install for local image storage
+gem 'mini_magick', '~> 4.3'
+
+#install for AWS image storage
+# gem 'fog', '~> 2.1'
+
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
