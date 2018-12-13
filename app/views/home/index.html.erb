@@ -12,16 +12,16 @@
 	<div>	<!-- 인기 콘텐츠 전체가 노출됩니다. -->
 		<% @contents.each do |content| %>
 			<div><!-- 썸네일 이미지 -->
-				<%= link_to image_tag(content.thumb), content_path(content) %>
+				<%= link_to image_tag(content.thumb.main), content_path(content) %>
 
 				<!-- <img src="<%= content.thumb %>" alt=""> -->
 			</div>
 			<div><!-- 타이틀이 노출됩니다. -->
-				<p><%= content.title %></p>		
+				<p><%= content.title %></p>
 			</div>
 			<div><!--키워드 전체가 노출됩니. -->
-				<p><%= content.tags.all %></p>		
-			</div>					
+				<p><%= content.tags.all %></p>
+			</div>
 
 		<% end %>
 
