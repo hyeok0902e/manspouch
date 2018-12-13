@@ -13,8 +13,6 @@
 		<% @contents.each do |content| %>
 			<div><!-- 썸네일 이미지 -->
 				<%= link_to image_tag(content.thumb), content_path(content) %>
-
-				<!-- <img src="<%= content.thumb %>" alt=""> -->
 			</div>
 			<div><!-- 타이틀이 노출됩니다. -->
 				<p><%= content.title %></p>		
@@ -22,9 +20,13 @@
 			<div><!--키워드 전체가 노출됩니. -->
 				<p><%= content.tags.all %></p>		
 			</div>					
-
 		<% end %>
 
 	</div>
 </div>
 <hr>
+
+<div>
+	<h1>랭킹제품</h1><%= link_to "더보기 (클릭시 랭킹제품 페이지로 이동합니다.)", ranking_index_path %>
+	
+</div>

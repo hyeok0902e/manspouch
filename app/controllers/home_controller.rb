@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
-  	@contents = Content.all
+  	@content_all = Content.all
+  	@contents = @content_all[0..5]
   end
 end
+
