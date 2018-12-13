@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'store/index'
-
-  get 'store/category'
-
   devise_for :users
   root 'home#index'
 
@@ -23,7 +19,7 @@ Rails.application.routes.draw do
   get 'mypouch/keyword'
   get 'mypouch/result'
 
-  # ranking
+  # store
   get 'store/index'
   get 'store/category'
 
