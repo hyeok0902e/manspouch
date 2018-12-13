@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :reviews
   devise_for :users
   root 'home#index'
 
   # scaffold
-  resources :products
+  resources :products do
+    resources :reviews
+  end
   resources :contents do
     resources :comments
   end

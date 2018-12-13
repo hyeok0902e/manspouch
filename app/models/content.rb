@@ -1,5 +1,5 @@
 class Content < ApplicationRecord
-  # validate
+  # validation
   validates :title, :presence => true
   validates :subtitle, :presence => true
   validates :body, :presence => true
@@ -7,7 +7,7 @@ class Content < ApplicationRecord
 
   has_and_belongs_to_many :tags
   mount_uploader :thumb, ImageUploader # carrierwave
-  has_many :comments
+  has_many :comments, :dependent => :delete_all
   belongs_to :user
 
   after_create do

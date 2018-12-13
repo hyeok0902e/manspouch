@@ -7,6 +7,7 @@ class User < ApplicationRecord
   mount_uploader :profile, ImageUploader # carrierwave
 
   has_many :comments
+  has_many :reviews
   has_many :contents
   has_many :products
 end

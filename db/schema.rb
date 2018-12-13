@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181213083524) do
+ActiveRecord::Schema.define(version: 20181213091222) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
@@ -87,10 +87,10 @@ ActiveRecord::Schema.define(version: 20181213083524) do
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "score"
     t.text     "body",       limit: 65535
-    t.integer  "product_id"
+    t.integer  "score"
     t.integer  "user_id"
+    t.integer  "product_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["product_id"], name: "index_reviews_on_product_id", using: :btree

@@ -1,37 +1,23 @@
-<%= form_for(review) do |f| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-      <ul>
-      <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for([@product, @product.reviews.build]) do |f| %>
+  <p>
+    <div class="field" style="margin-bottom:-10px;">
+      <div id="star-rating"></div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :score %>
-    <%= f.number_field :score %>
-  </div>
+    <div class="field">
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+    </div>
 
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= f.label :product_id %>
-    <%= f.text_field :product_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.submit %>
+    </div>
+  </p>
 <% end %>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets',
+    scoreName: 'review[score]'
+  });
+</script>
