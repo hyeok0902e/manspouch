@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   mount_uploader :profile, ImageUploader # carrierwave
+
+  has_many :comments
+  has_many :contents
+  has_many :products
 end

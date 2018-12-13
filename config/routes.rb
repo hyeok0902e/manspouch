@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   # scaffold
   resources :products
-  resources :contents
+  resources :contents do
+    resources :comments
+  end
 
   # ranking
   get 'ranking/index'

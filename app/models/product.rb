@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_and_belongs_to_many :tags
   mount_uploader :thumb, ImageUploader # carrierwave
+  belongs_to :user
 
   after_create do
     product = Product.find_by(id: self.id)
