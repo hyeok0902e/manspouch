@@ -1,2 +1,30 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<div class="">
+  <p class=""><%= link_to "배너(클릭시 피부분석으로 이동합니다.)", mypouch_survey_path%></p>
+</div>
+<hr>
+
+
+<div class="">
+	<h1>인기 콘텐츠</h1><%= link_to "더보기 (클릭시 맞춤콘텐츠 페이지로 이동합니다.)", contents_path %>
+
+	<div>	<!-- 인기 콘텐츠 전체가 노출됩니다. -->
+		<% @contents.each do |content| %>
+			<div><!-- 썸네일 이미지 -->
+				<%= link_to image_tag(content.thumb), content_path(content) %>
+
+				<!-- <img src="<%= content.thumb %>" alt=""> -->
+			</div>
+			<div><!-- 타이틀이 노출됩니다. -->
+				<p><%= content.title %></p>		
+			</div>
+			<div><!--키워드 전체가 노출됩니. -->
+				<p><%= content.tags.all %></p>		
+			</div>					
+
+		<% end %>
+
+	</div>
+</div>
+<hr>
