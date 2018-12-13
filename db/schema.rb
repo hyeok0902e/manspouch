@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20181212092409) do
     t.string   "link"
     t.string   "category"
     t.string   "keyword"
+    t.string   "thumb"
     t.boolean  "normal"
     t.boolean  "dry"
     t.boolean  "oily"
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20181212092409) do
     t.string   "category"
     t.string   "keyword"
     t.float    "score",      limit: 24
+    t.string   "thumb"
     t.boolean  "normal"
     t.boolean  "dry"
     t.boolean  "oily"
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 20181212092409) do
     t.string   "keyword"
     t.string   "skintype"
     t.string   "usertype"
+    t.string   "profile"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -6,6 +6,7 @@ class Content < ApplicationRecord
   validates :category, :presence => true
 
   has_and_belongs_to_many :tags
+  mount_uploader :thumb, ImageUploader # carrierwave
 
   after_create do
     content = Content.find_by(id: self.id)

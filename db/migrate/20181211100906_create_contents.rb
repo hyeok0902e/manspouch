@@ -7,6 +7,7 @@ class CreateContents < ActiveRecord::Migration[5.0]
       t.string :link
       t.string :category
       t.string :keyword
+      t.string :thumb
 
       t.boolean :normal
       t.boolean :dry

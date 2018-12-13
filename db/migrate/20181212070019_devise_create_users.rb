@@ -12,7 +12,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :age
       t.string :keyword
       t.string :skintype
-      t.string :usertype 
+      t.string :usertype
+      t.string :profile
 
       ## Recoverable
       t.string   :reset_password_token

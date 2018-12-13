@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @content.title %></h2>
-<p><%= @content.subtitle %></p>
+<p>
+  <h3>Thumbnail</h3>
+  <img src="<%= @content.thumb %>" alt="" />
+</p>
+<h3>Title: <%= @content.title %></h3>
+<p>Subtitle: <%= @content.subtitle %></p>
 
 <article>
+  <h3>Body</h3>
   <%= @content.body.html_safe%>
 </article>
 

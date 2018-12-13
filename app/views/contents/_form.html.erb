@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :thumb %>
+    <%= f.file_field :thumb, accept: 'image/png image/gif image/jpg' %>
+  </div>
+  <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>

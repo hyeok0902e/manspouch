@@ -4,10 +4,13 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :profile %>
+    <%= f.file_field :profile, accept: 'image/png image/gif image/jpg' %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
   <div class="field">
     <%= f.label :nickname %>
     <%= f.text_field :nickname %>
@@ -24,7 +27,7 @@
     <%= f.label :age %>
     <%= f.text_field :age %>
   </div>
-  
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

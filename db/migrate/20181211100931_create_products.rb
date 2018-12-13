@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :category
       t.string :keyword
       t.float :score
+      t.string :thumb
 
       t.boolean :normal
       t.boolean :dry

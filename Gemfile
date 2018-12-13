@@ -13,10 +13,10 @@ gem 'tinymce-rails-langs', '~> 4.20180103'
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 
-#install for local image storage
+# install for local image storage
 gem 'mini_magick', '~> 4.3'
 
-#install for AWS image storage
+# install for AWS image storage
 # gem 'fog', '~> 2.1'
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'

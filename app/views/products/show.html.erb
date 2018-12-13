@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @product.name %></h2>
-<p><%= @product.brand %></p>
+<p>
+  <h3>Thumbnail</h3>
+  <img src="<%= @product.thumb.detail %>" alt="" />
+</p>
+<h3>Name: <%= @product.name %></h3>
+<p>Brand: <%= @product.brand %></p>
 
 <article>
+  <h3>Body</h3>
   <%= @product.body.html_safe %>
 </article>
 

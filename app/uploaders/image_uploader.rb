@@ -3,12 +3,32 @@ class ImageUploader < CarrierWave::Uploader::Base
   #로컬 저장을 위해서 추가되어야 하는 라인 minimagick 사용 AWS 사용시 주석처리
   include CarrierWave::MiniMagick
 
+  # image Resize
+  # https://hcn1519.github.io/articles/2016-02/carrierwave
+  # https://bluesh55.github.io/2017/11/07/carrierwave-resizing-options/
+  version :detail do
+    process :resize_to_fit => [800, 10000]
+  end
+  version :main do
+      process :resize_to_fill => [240, 180], :if => :horizontal? # 4:3비율, 이미지가 가로일 때
+      process :resize_to_fill => [240, 320], :if => :vertical? # 4:3비율, 이미지가 세로일 때
+  end
+
+  def horizontal?(new_file)
+    image = MiniMagick::Image.open(self.file.file)
+    true if image[:height] < image[:width]
+  end
+  def vertical?(new_file)
+    image = MiniMagick::Image.open(self.file.file)
+    true if image[:height] > image[:width]
+  end
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  
+
   #로컬 저장을 위해 사용하는 'file' AWS 사용시 주석 처리
   storage :file
 
