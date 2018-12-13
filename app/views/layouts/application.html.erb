@@ -3,7 +3,6 @@
   <head>
     <title>Manspouch</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -22,14 +21,16 @@
           <ul>
             <li><%= link_to "Contents", contents_path  %></li>
             <li><%= link_to "Products", products_path  %></li>
+            <li><%= link_to "Ranking", ranking_index_path %></li>
+            <li><%= link_to "Srote", store_index_path%></li>
           </ul>
         </nav>
 
         <div class="nav-auth">
           <ul>
             <% if user_signed_in? %>
+              <li><%= link_to 'MyPouch', '/mypouch/index' %></li>            
               <li><%= link_to 'SignOut', destroy_user_session_path, method: :delete %></li>
-              <li><%= link_to 'MyPouch', '/mypouch/index' %></li>
             <% else %>
               <li><%= link_to 'SignIn', new_user_session_path %></li>
               <li><%= link_to 'SignUn', new_user_registration_path %></li>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'store/index'
+
+  get 'store/category'
+
   devise_for :users
   root 'home#index'
 
@@ -17,6 +21,10 @@ Rails.application.routes.draw do
   get 'mypouch/keyword'
   get 'mypouch/result'
 
+  # ranking
+  get 'store/index'
+  get 'store/category'
+
   # mpadmin
   get 'mpadmin/index'
   get 'mpadmin/mpusers'
@@ -26,4 +34,6 @@ Rails.application.routes.draw do
 
   # tinymce
   post '/tinymce_assets' => 'tinymce_assets#create'
+
+
 end
