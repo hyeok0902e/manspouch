@@ -1,4 +1,21 @@
 <h1>Mypouch#keyword</h1>
-<p>Find me in app/views/mypouch/keyword.html.erb</p>
 
-<%= link_to '분석 결과 보기', mypouch_result_path%> 
+<form action="/mypouch/result" method="post" class="user_check_keyword">
+  <h3>관심 키워드 선택</h3>
+  <input type="checkbox" name="a" value="#key1" id="key1">
+  <label for="key1">key1</label>
+
+  <input type="checkbox" name="b" value="#key2" id="key2">
+  <label for="key2">key2</label>
+
+  <input type="checkbox" name="c" value="#key3" id="key3">
+  <label for="key3">key3</label>
+
+  <input type="checkbox" name="d" value="#key4" id="key4">
+  <label for="key4">key4</label>
+
+  <input type="checkbox" name="e" value="#key5" id="key5">
+  <label for="key5">key5</label>
+
+  <input type="submit" value="분석결과 보기">
+</form>

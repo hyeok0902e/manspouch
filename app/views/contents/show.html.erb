@@ -7,12 +7,19 @@
 <h3>Title: <%= @content.title %></h3>
 <p>Subtitle: <%= @content.subtitle %></p>
 
-<article>
+<article class="" style="border: 1px solid #555">
   <h3>Body</h3>
-  <%= @content.body.html_safe%>
+  <p>
+    <%= @content.body.html_safe%>
+  </p>
+  <p>
+    <%= link_to "Likes #{@content.get_upvotes.size}", like_content_path(@content), method: :put%>
+    <span>Views <%= @content.impressionist_count %></span>
+  </p>
 </article>
 
 <p>
+  <h3>태그</h3>
   <% @tags.each do |tag| %>
     <span>#<%= tag.name %></span>&nbsp
   <% end %>

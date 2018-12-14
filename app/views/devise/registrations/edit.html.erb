@@ -21,11 +21,14 @@
   </div>
   <div class="field">
     <%= f.label :sex %>
-    <%= f.text_field :sex %>
+    <%= f.radio_button :sex, "남자" %>
+    <%= f.label :sex, "남자" %>
+    <%= f.radio_button :sex, "여자" %>
+    <%= f.label :sex, "여자" %>
   </div>
   <div class="field">
     <%= f.label :age %>
-    <%= f.text_field :age %>
+    <%= f.select(:age, ['10대후반', '20대초반', '20대후반', '30대초반', '30대후반', '40대이상'] , {}, { :class => ''}) %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

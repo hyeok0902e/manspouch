@@ -1,6 +1,7 @@
 class ContentsController < ApplicationController
-  before_action :set_content, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :delete]
+  before_action :set_content, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :authenticate_user!, only: [:new, :edit, :delete, :upvote]
+  impressionist actions: [:show]
 
   # GET /contents
   # GET /contents.json
@@ -61,6 +62,16 @@ class ContentsController < ApplicationController
       format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # acts_as_votable
+  # 투표 관련 Controller 내용 : 찬성
+  def upvote
+    @content = Content.find(params[:id])
+
+    @content.upvote_by current_user
+    redirect_to(request.referer)
+    # redirect_to(request.referrer, :notice => '해당 글을 추천하셨습니다.')
   end
 
   private

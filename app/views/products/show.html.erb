@@ -7,12 +7,16 @@
 <h3>Name: <%= @product.name %></h3>
 <p>Brand: <%= @product.brand %></p>
 
-<article>
+<article class="" style="border: 1px solid #555">
   <h3>Body</h3>
-  <%= @product.body.html_safe %>
+  <p><%= @product.body.html_safe %></p>
+  <% if @product.score != nil %>
+    <h3>평점</h3>
+    <p>★<%= @product.score %></p>
+  <% end %>
 </article>
-
 <p>
+  <h3>태그</h3>
   <% @tags.each do |tag| %>
     <span>#<%= tag.name %></span>&nbsp
   <% end %>
@@ -22,7 +26,7 @@
 <%= link_to 'Back', products_path %>
 
 <div class="">
-  <h3><%= @product.reviews.count %> Comments</h3>
+  <h3><%= @product.reviews.count %> Reviews</h3>
   <%= render @product.reviews %>
   <h3>Add a Review: </h3>
   <%= render "reviews/form" %>

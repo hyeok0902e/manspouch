@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
   resources :contents do
     resources :comments
+    member do
+      put "like", to: "contents#upvote"
+    end
   end
 
   # ranking
@@ -15,11 +18,11 @@ Rails.application.routes.draw do
   get 'ranking/category'
 
   # mypouch
-  get 'mypouch/index'
-  get 'mypouch/face'
-  get 'mypouch/survey'
-  get 'mypouch/keyword'
-  get 'mypouch/result'
+  get 'mypouch/index' => "mypouch#index"
+  get 'mypouch/face'=> "mypouch#face"
+  get 'mypouch/survey' => "mypouch#survey"
+  get 'mypouch/keyword'=> "mypouch#keyword"
+  post 'mypouch/result' => "mypouch#result"
 
   # store
   get 'store/index'

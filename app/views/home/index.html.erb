@@ -7,18 +7,24 @@
 
 
 <div class="">
-	<h1>인기 콘텐츠</h1><%= link_to "더보기 (클릭시 맞춤콘텐츠 페이지로 이동합니다.)", contents_path %>
+	<h1>인기 콘텐츠</h1>
+  <%= link_to "더보기 (클릭시 맞춤콘텐츠 페이지로 이동합니다.)", contents_path %>
 
 	<div class="">
     	<!-- 인기 콘텐츠 전체가 노출됩니다. -->
 		<% @contents.each do |content| %>
 			<div class="">
 				<%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
-			</div>
+      </div>
 
 			<div class="">
-				<p><%= content.title %></p><!-- 타이틀이 노출됩니다. -->
+				<h3><%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
 			</div>
+
+      <div class>
+        <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
+        <span>Views <%= content.impressionist_count %></span>
+      </div>
 
 			<div class="">
         <!--키워드 전체가 노출됩니. -->
@@ -32,8 +38,10 @@
     <% end %>
 	</div>
 </div>
+
 <hr>
 
 <div class="">
-	<h1>랭킹제품</h1><%= link_to "더보기 (클릭시 랭킹제품 페이지로 이동합니다.)", ranking_index_path %>
+	<h1>랭킹제품</h1>
+  <%= link_to "더보기 (클릭시 랭킹제품 페이지로 이동합니다.)", ranking_index_path %>
 </div>

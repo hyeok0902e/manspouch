@@ -9,6 +9,8 @@ class Content < ApplicationRecord
   mount_uploader :thumb, ImageUploader # carrierwave
   has_many :comments, :dependent => :delete_all
   belongs_to :user
+  acts_as_votable
+  is_impressionable
 
   after_create do
     content = Content.find_by(id: self.id)

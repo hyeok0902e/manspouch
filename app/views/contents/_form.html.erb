@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.select(:category, ['스킨케어', '페이스업', '헤어', '바디'] , {}, { :class => ''}) %>
   </div>
   <div class="field">
     <%= f.label :keyword %>
