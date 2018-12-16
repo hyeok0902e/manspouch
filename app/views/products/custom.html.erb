@@ -1,0 +1,19 @@
+<nav class="">
+  <ul>
+    <li><a href="/products/custom/<%= 'all' %>">ALL</a></li>
+    <li><a href="/products/custom/<%= '스킨케어' %>">스킨케어</a></li>
+    <li><a href="/products/custom/<%= '페이스업' %>">페이스업</a></li>
+    <li><a href="/products/custom/<%= '헤어' %>">헤어</a></li>
+    <li><a href="/products/custom/<%= '바디' %>">바디</a></li>
+  </ul>
+</nav>
+
+<article>
+  <% @products.each do |product| %>
+    <div class="">
+      <a href="<%= product_path(product) %>"><img src="<%= product.thumb.main %>" alt="" /></a>
+      <p><span style="color: red;"><%= product.category %></span> | <%= product.name %></p>
+    </div>
+  <% end %>
+</article>
+<%= link_to 'New Product', new_product_path %>

@@ -23,6 +23,11 @@
 - Content, Product, user의 form.html.erb에서 field 수정하기
 - 사용자 키워드 선택/저장 기능 구현
 
+**2018-12-16**
+- time_ago_in_words, devise error message 한글 패치
+- Products Sorting → Ranking
+- 카테고리 추가
+
 ### To-Do List
 - 태그에 링크 달기(나른한 하루 네이버 블로그 참고)
 - Creature 생성

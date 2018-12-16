@@ -16,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def horizontal?(new_file)
     image = MiniMagick::Image.open(self.file.file)
-    true if image[:height] < image[:width]
+    true if ((image[:height] < image[:width]) || (image[:height] == image[:width]))
   end
   def vertical?(new_file)
     image = MiniMagick::Image.open(self.file.file)

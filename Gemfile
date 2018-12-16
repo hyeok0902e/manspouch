@@ -14,6 +14,7 @@ gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'impressionist', '~> 1.6', '>= 1.6.1'
+gem 'devise-i18n', '~> 1.7'
 
 # install for local image storage
 gem 'mini_magick', '~> 4.3'

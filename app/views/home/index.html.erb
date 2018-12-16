@@ -1,10 +1,10 @@
 <h1>Home#index</h1>
 
 <div class="">
-  <p class=""><%= link_to "배너(클릭시 피부분석으로 이동합니다.)", mypouch_survey_path%></p>
+  <p class=""><%= link_to "배너(클릭시 피부분석으로 이동합니다.)", "/mypoucy/survey"%></p>
 </div>
-<hr>
 
+<hr>
 
 <div class="">
 	<h1>인기 콘텐츠</h1>
@@ -27,10 +27,9 @@
       </div>
 
 			<div class="">
-        <!--키워드 전체가 노출됩니. -->
 				<p>
           <% tags = content.tags %>
-          <% tags.each do |tag| %>
+          <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
             <span>#<%= tag.name %></span>&nbsp
           <% end %>
         </p>
@@ -43,5 +42,8 @@
 
 <div class="">
 	<h1>랭킹제품</h1>
-  <%= link_to "더보기 (클릭시 랭킹제품 페이지로 이동합니다.)", ranking_index_path %>
+  <a href="/ranking/category/<%= 'all' %>">더보기 (클릭시 랭킹제품 페이지로 이동합니다.)</a>
+  <% @products.each do |product| %>
+    <div class=""><%= product.score %></div>
+  <% end %>
 </div>

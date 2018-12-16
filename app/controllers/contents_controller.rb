@@ -64,6 +64,16 @@ class ContentsController < ApplicationController
     end
   end
 
+  # 맞춤 콘텐츠
+  def custom
+    @category = params[:category]
+    if @category == "all"
+      @contents = Content.all
+    else
+      @contents = Content.where(:category => @category)
+    end
+  end
+
   # acts_as_votable
   # 투표 관련 Controller 내용 : 찬성
   def upvote

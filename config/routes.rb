@@ -2,20 +2,23 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
 
-  # scaffold
+  # products
   resources :products do
     resources :reviews
   end
+  get "/products/custom/:category" => "products#custom"
+
+  # contents
   resources :contents do
     resources :comments
     member do
       put "like", to: "contents#upvote"
     end
   end
+  get "/contents/custom/:category" => "contents#custom"
 
   # ranking
-  get 'ranking/index'
-  get 'ranking/category'
+  get 'ranking/category/:category' => "ranking#category"
 
   # mypouch
   get 'mypouch/index' => "mypouch#index"
@@ -26,7 +29,7 @@ Rails.application.routes.draw do
 
   # store
   get 'store/index'
-  get 'store/category'
+  get 'store/category/:category' => "store#category"
 
   # mpadmin
   get 'mpadmin/index'

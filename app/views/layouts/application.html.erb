@@ -19,10 +19,11 @@
 
         <nav>
           <ul>
-            <li><%= link_to "Contents", contents_path  %></li>
-            <li><%= link_to "Products", products_path  %></li>
-            <li><%= link_to "Ranking", ranking_index_path %></li>
-            <li><%= link_to "Srote", store_index_path%></li>
+            <li><a href="/contents/custom/<%= 'all' %>">페이스업 매뉴얼</a></li>
+            <li><a href="/products/custom/<%= 'all' %>">맞춤 제품</a></li>
+            <li><a href="/ranking/category/<%= 'all' %>">랭킹</a></li>
+            <li><a href="/store/category/<%= 'all' %>">스토어</a></li>
+            <li><%= link_to "크리에이터 콘텐츠", "#"%></li>
           </ul>
         </nav>
 

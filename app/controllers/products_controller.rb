@@ -63,6 +63,15 @@ class ProductsController < ApplicationController
     end
   end
 
+  def custom
+    @category = params[:category]
+    if @category == "all"
+      @products = Product.all
+    else
+      @products = Product.where(:category => @category)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
