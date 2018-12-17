@@ -8,22 +8,22 @@
   </ul>
 </nav>
 
-<div class="">
-  <h3><%= current_user.nickname %>님의 <span>맞춤 매뉴얼</span>과 관심 <span>#키워드</span></h3>
-  <% if current_user.keyword != nil %>
-    <% tags = current_user.tags %>
-    <p>
-      [태그]
-      <% tags.each do |tag| %>
-        <span>#<%= tag.name %></span>&nbsp
-      <% end %>
-    </p>
-  <% else %>
-    <p>피부특성 분석을 진행해 보세요! <a href="/mypouch/face">바로가기</a></p>
-  <% end %>
-</div>
-
 <article class="custom">
+  <div class="">
+    <h3><%= current_user.nickname %>님의 <span>맞춤 매뉴얼</span>과 관심 <span>#키워드</span></h3>
+    <% if current_user.keyword != nil %>
+      <% tags = current_user.tags %>
+      <p>
+        [태그]
+        <% tags.each do |tag| %>
+          <span>#<%= tag.name %></span>&nbsp
+        <% end %>
+      </p>
+    <% else %>
+      <p>피부특성 분석을 진행해 보세요! <a href="/mypouch/face">바로가기</a></p>
+    <% end %>
+  </div>
+  
   <% @contents.each do |content| %>
     <div class="" style="border: 1px solid #555">
       <div class="">

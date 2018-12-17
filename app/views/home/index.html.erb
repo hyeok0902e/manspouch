@@ -25,6 +25,7 @@
         <div class>
           <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
           <span>Views <%= content.impressionist_count %></span>
+          <p class=""><%= time_ago_in_words(content.created_at) %> 전 [ <%= content.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
         </div>
 
   			<div class="">

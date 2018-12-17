@@ -23,7 +23,7 @@
   <% end %>
 </div>
 
-<article>
+<article class="custom">
   <% @products.each do |product| %>
     <div class="" style="border: 1px solid #555">
       <div class="">
@@ -45,4 +45,17 @@
     </div>
   <% end %>
 </article>
+
+<article class="index">
+  <h3>트렌드 매뉴얼</h3>
+  <!-- 관련 js, css 코드는 해당 페이지 아래쪽에 있음 -->
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">필터 ▼</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="/contents/filter/<%= 'hottest' %>">인기순</a>
+      <a href="/contents/filter/<%= 'latest' %>">최신순</a>
+    </div>
+  </div>
+</article>
+
 <%= link_to 'New Product', new_product_path %>
