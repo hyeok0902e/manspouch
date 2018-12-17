@@ -10,9 +10,28 @@
 
 <article>
   <% @creatures.each do |creature| %>
-    <div class="">
-      <a href="<%= creature_path(creature) %>"><img src="<%= creature.thumb.main %>" alt="" /></a>
-      <p><span style="color: red;"><%= creature.category %></span> | <%= creature.title %></p>
+    <div class="" style="border: 1px solid #555">
+      <div class="">
+        <%= link_to image_tag(creature.thumb.main), creature_path(creature) %><!-- 썸네일 이미지 -->
+      </div>
+
+      <div class="">
+        <h3><%= creature.title %></h3><!-- 타이틀이 노출됩니다. -->
+      </div>
+
+      <div class>
+        <%= link_to "Likes #{creature.get_upvotes.size}", like_creature_path(creature), method: :put %>
+        <span>Views <%= creature.impressionist_count %></span>
+      </div>
+
+      <div class="">
+        <p>
+          <% tags = creature.tags %>
+          <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+            <span>#<%= tag.name %></span>&nbsp
+          <% end %>
+        </p>
+      </div>
     </div>
   <% end %>
 </article>

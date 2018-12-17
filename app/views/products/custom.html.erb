@@ -10,9 +10,23 @@
 
 <article>
   <% @products.each do |product| %>
-    <div class="">
-      <a href="<%= product_path(product) %>"><img src="<%= product.thumb.main %>" alt="" /></a>
-      <p><span style="color: red;"><%= product.category %></span> | <%= product.name %></p>
+    <div class="" style="border: 1px solid #555">
+      <div class="">
+        <span><%= product.category %></span>
+        <%= link_to image_tag(product.thumb.main), product_path(product) %><!-- 썸네일 이미지 -->
+      </div>
+      <div class="">
+        <h3><%= product.name %>(<%= product.brand %>)</h3>
+        <h5>가격: <%= product.price %></h5>
+      </div>
+      <div class=""><%= product.score %></div>
+
+      <div class="">
+        <% tags = product.tags %>
+        <% tags.each do |tag| %>
+          <span>#<%= tag.name %></span>&nbsp
+        <% end %>
+      </div>
     </div>
   <% end %>
 </article>

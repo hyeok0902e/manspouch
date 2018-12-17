@@ -1,0 +1,15 @@
+<div class="">
+  <p class=""><strong><%= talk.user.nickname %></strong></p>
+  <p class=""><%= talk.body %></p>
+  <p class=""><%= time_ago_in_words(talk.created_at) %> 전 [ <%= talk.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
+  <% if current_user == talk.user%>
+    <p>
+      <%= link_to 'Delete', [talk.creature, talk],
+                    method: :delete,
+                    class: "",
+                    data: { confirm: 'Are you sure?' }
+      %>
+    </p>
+  <% end %>
+  <hr>
+<div>

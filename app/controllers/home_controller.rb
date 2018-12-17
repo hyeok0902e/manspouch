@@ -8,5 +8,6 @@ class HomeController < ApplicationController
 
   def rank_of_products(products)
     @products = products.all.order("score desc")
+    @products = @products[0..5]
   end
 end

@@ -13,27 +13,29 @@
 	<div class="">
     	<!-- 인기 콘텐츠 전체가 노출됩니다. -->
 		<% @contents.each do |content| %>
-			<div class="">
-				<%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+      <div class="" style="border: 1px solid #555">
+  			<div class="">
+  				<%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+        </div>
+
+  			<div class="">
+  				<h3><%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
+  			</div>
+
+        <div class>
+          <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
+          <span>Views <%= content.impressionist_count %></span>
+        </div>
+
+  			<div class="">
+  				<p>
+            <% tags = content.tags %>
+            <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+              <span>#<%= tag.name %></span>&nbsp
+            <% end %>
+          </p>
+  			</div>
       </div>
-
-			<div class="">
-				<h3><%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
-			</div>
-
-      <div class>
-        <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
-        <span>Views <%= content.impressionist_count %></span>
-      </div>
-
-			<div class="">
-				<p>
-          <% tags = content.tags %>
-          <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
-            <span>#<%= tag.name %></span>&nbsp
-          <% end %>
-        </p>
-			</div>
     <% end %>
 	</div>
 </div>
@@ -44,6 +46,23 @@
 	<h1>랭킹제품</h1>
   <a href="/ranking/category/<%= 'all' %>">더보기 (클릭시 랭킹제품 페이지로 이동합니다.)</a>
   <% @products.each do |product| %>
-    <div class=""><%= product.score %></div>
+    <div class="" style="border: 1px solid #555">
+      <div class="">
+        <span><%= product.category %></span>
+        <%= link_to image_tag(product.thumb.main), product_path(product) %><!-- 썸네일 이미지 -->
+      </div>
+      <div class="">
+        <h3><%= product.name %>(<%= product.brand %>)</h3>
+        <h5>가격: <%= product.price %></h5>
+      </div>
+      <div class=""><%= product.score %></div>
+
+      <div class="">
+        <% tags = product.tags %>
+        <% tags.each do |tag| %>
+          <span>#<%= tag.name %></span>&nbsp
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

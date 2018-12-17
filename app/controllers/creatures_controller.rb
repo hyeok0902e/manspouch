@@ -1,6 +1,7 @@
 class CreaturesController < ApplicationController
   before_action :set_creature, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, only: [:new, :edit, :delete]
+  before_action :authenticate_user!, only: [:new, :edit, :delete, :upvote]
+  impressionist actions: [:show]
 
   # GET /creatures
   # GET /creatures.json
@@ -11,6 +12,7 @@ class CreaturesController < ApplicationController
   # GET /creatures/1
   # GET /creatures/1.json
   def show
+    @tags = @creature.tags
   end
 
   # GET /creatures/new
@@ -69,6 +71,14 @@ class CreaturesController < ApplicationController
     else
       @creatures = Creature.where(:category => @category)
     end
+  end
+
+  def upvote
+    @creature = Creature.find(params[:id])
+
+    @creature.upvote_by current_user
+    redirect_to(request.referer)
+    # redirect_to(request.referrer, :notice => '해당 글을 추천하셨습니다.')
   end
 
   private

@@ -1,0 +1,11 @@
+<%= form_for([@creature, @creature.talks.build]) do |f| %>
+  <p>
+    <div class="field">
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+    </div>
+    <div class="field">
+      <%= f.submit %>
+    </div>
+  </p>
+<% end %>

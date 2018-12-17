@@ -10,10 +10,30 @@
 
 <article>
   <% @contents.each do |content| %>
-    <div class="">
-      <a href="<%= content_path(content) %>"><img src="<%= content.thumb.main %>" alt="" /></a>
-      <p><span style="color: red;"><%= content.category %></span> | <%= content.title %></p>
+    <div class="" style="border: 1px solid #555">
+      <div class="">
+        <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+      </div>
+
+      <div class="">
+        <h3><%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
+      </div>
+
+      <div class>
+        <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
+        <span>Views <%= content.impressionist_count %></span>
+      </div>
+
+      <div class="">
+        <p>
+          <% tags = content.tags %>
+          <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+            <span>#<%= tag.name %></span>&nbsp
+          <% end %>
+        </p>
+      </div>
     </div>
   <% end %>
 </article>
+
 <%= link_to 'New Content', new_content_path %>
