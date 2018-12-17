@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :contents
   has_many :products
+  has_many :creatures
   has_and_belongs_to_many :tags
   acts_as_votable
 end

@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root 'home#index'
 
-  # products
-  resources :products do
-    resources :reviews
-  end
-  get "/products/custom/:category" => "products#custom"
+  # mypouch
+  get 'mypouch/index' => "mypouch#index"
+  get 'mypouch/face'=> "mypouch#face"
+  get 'mypouch/survey' => "mypouch#survey"
+  get 'mypouch/keyword'=> "mypouch#keyword"
+  post 'mypouch/result' => "mypouch#result"
 
   # contents
   resources :contents do
@@ -17,19 +19,22 @@ Rails.application.routes.draw do
   end
   get "/contents/custom/:category" => "contents#custom"
 
+  # products
+  resources :products do
+    resources :reviews
+  end
+  get "/products/custom/:category" => "products#custom"
+
   # ranking
   get 'ranking/category/:category' => "ranking#category"
-
-  # mypouch
-  get 'mypouch/index' => "mypouch#index"
-  get 'mypouch/face'=> "mypouch#face"
-  get 'mypouch/survey' => "mypouch#survey"
-  get 'mypouch/keyword'=> "mypouch#keyword"
-  post 'mypouch/result' => "mypouch#result"
 
   # store
   get 'store/index'
   get 'store/category/:category' => "store#category"
+
+  # creatures
+  resources :creatures
+  get 'creatures/category/:category' => "creatures#category"
 
   # mpadmin
   get 'mpadmin/index'

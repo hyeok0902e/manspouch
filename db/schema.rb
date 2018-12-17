@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181214031943) do
+ActiveRecord::Schema.define(version: 20181217031247) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
@@ -51,6 +51,37 @@ ActiveRecord::Schema.define(version: 20181214031943) do
     t.integer "tag_id"
     t.index ["content_id"], name: "index_contents_tags_on_content_id", using: :btree
     t.index ["tag_id"], name: "index_contents_tags_on_tag_id", using: :btree
+  end
+
+  create_table "creatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "body",       limit: 65535
+    t.string   "link"
+    t.string   "category"
+    t.string   "keyword"
+    t.string   "thumb"
+    t.boolean  "normal"
+    t.boolean  "dry"
+    t.boolean  "oily"
+    t.boolean  "complex"
+    t.boolean  "sensitive"
+    t.boolean  "notcare"
+    t.boolean  "basecare"
+    t.boolean  "hardcare"
+    t.boolean  "makeup"
+    t.boolean  "idol"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_creatures_on_user_id", using: :btree
+  end
+
+  create_table "creatures_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "creature_id"
+    t.integer "tag_id"
+    t.index ["creature_id"], name: "index_creatures_tags_on_creature_id", using: :btree
+    t.index ["tag_id"], name: "index_creatures_tags_on_tag_id", using: :btree
   end
 
   create_table "impressions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -184,6 +215,8 @@ ActiveRecord::Schema.define(version: 20181214031943) do
   add_foreign_key "comments", "users"
   add_foreign_key "contents_tags", "contents"
   add_foreign_key "contents_tags", "tags"
+  add_foreign_key "creatures_tags", "creatures"
+  add_foreign_key "creatures_tags", "tags"
   add_foreign_key "products_tags", "products"
   add_foreign_key "products_tags", "tags"
   add_foreign_key "reviews", "products"
