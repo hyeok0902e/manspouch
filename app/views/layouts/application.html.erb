@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
@@ -22,11 +23,11 @@
         
         <div class="nav-main">
           <ul>
-            <li><a href="/contents/custom/<%= 'all' %>">페이스업 매뉴얼</a></li>
-            <li><a href="/products/custom/<%= 'all' %>">맞춤 제품</a></li>
-            <li><a href="/ranking/category/<%= 'all' %>">랭킹</a></li>
-            <li><a href="/store/category/<%= 'all' %>">스토어</a></li>
-            <li><a href="/creatures/category/<%= 'all' %>">크리에이터 콘텐츠</a></li>
+            <li><a class="m1" href="/contents/custom/<%= 'all' %>">페이스업 매뉴얼</a></li>
+            <li><a class="m2" href="/products/custom/<%= 'all' %>">맞춤 제품</a></li>
+            <li><a class="m3" href="/ranking/category/<%= 'all' %>">랭킹</a></li>
+            <li><a class="m4" href="/store/category/<%= 'all' %>">스토어</a></li>
+            <li><a class="m5" href="/creatures/category/<%= 'all' %>">크리에이터 콘텐츠</a></li>
           </ul>
         </div>
 
@@ -68,5 +69,6 @@
           Copyright, TL Company . All rights reserved.</div>
       </div>
     </footer>
+    <script src="../assets/main.js"></sciprt>
   </body>
 </html>
