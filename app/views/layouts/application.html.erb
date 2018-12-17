@@ -8,39 +8,40 @@
   </head>
 
   <body>
-    <div class="container">
+    <!--
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-
+    -->
       <header>
-        <div class="main_logo">
-          <a href="/">Manspouch</a>
-        </div>
+        <div class="top-con">
+          <a href="/">
+            <div class="main_logo">
+            </div>
+            </a>
+          
+          <div class="nav-main">
+            <ul>
+              <li><a href="/contents/custom/<%= 'all' %>">페이스업 매뉴얼</a></li>
+              <li><a href="/products/custom/<%= 'all' %>">맞춤 제품</a></li>
+              <li><a href="/ranking/category/<%= 'all' %>">랭킹</a></li>
+              <li><a href="/store/category/<%= 'all' %>">스토어</a></li>
+              <li><a href="/creatures/category/<%= 'all' %>">크리에이터 콘텐츠</a></li>
+            </ul>
+          </div>
 
-        <nav>
-          <ul>
-            <li><a href="/contents/custom/<%= 'all' %>">페이스업 매뉴얼ㄴㄴ</a></li>
-            <li><a href="/products/custom/<%= 'all' %>">맞춤 제품</a></li>
-            <li><a href="/ranking/category/<%= 'all' %>">랭킹</a></li>
-            <li><a href="/store/category/<%= 'all' %>">스토어</a></li>
-            <li><a href="/creatures/category/<%= 'all' %>">크리에이터 콘텐츠</a></li>
-          </ul>
-        </nav>
-
-        <div class="nav-auth">
-          <ul>
-            <% if user_signed_in? %>
-              <li><%= link_to 'MyPouch', '/mypouch/index' %></li>
-              <li><%= link_to 'SignOut', destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to 'SignIn', new_user_session_path %></li>
-              <li><%= link_to 'SignUp', new_user_registration_path %></li>
-            <% end %>
-          </ul>
+          <div class="nav-auth">
+            <ul>
+              <% if user_signed_in? %>
+                <li><%= link_to 'MyPouch', '/mypouch/index' %></li>
+                <li><%= link_to 'SignOut', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'SignIn', new_user_session_path %></li>
+                <li><%= link_to 'SignUp', new_user_registration_path %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </header>
-    </div>
-    <hr>
     <div class="container">
       <%= yield %>
     </div>
