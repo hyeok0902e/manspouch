@@ -16,3 +16,5 @@
 //= require_tree .
 //= require tinymce
 //= require tinymce-jquery
+
+$('.m1').css("color","#646EAB");
