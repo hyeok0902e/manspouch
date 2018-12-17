@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
   end
   get "/contents/custom/:category" => "contents#custom"
+  get "/contents/filter/:filter" => "contents#filter"
 
   # products
   resources :products do
