@@ -33,7 +33,12 @@ Rails.application.routes.draw do
   get 'store/category/:category' => "store#category"
 
   # creatures
-  resources :creatures
+  resources :creatures do
+    resources :talks
+    member do
+      put "like", to: "creatures#upvote"
+    end
+  end
   get 'creatures/category/:category' => "creatures#category"
 
   # mpadmin

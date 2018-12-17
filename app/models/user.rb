@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :comments
   has_many :reviews
+  has_many :talks
   has_many :contents
   has_many :products
   has_many :creatures

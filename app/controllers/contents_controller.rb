@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy, :upvote]
-  before_action :authenticate_user!, only: [:new, :edit, :delete, :upvote]
+  before_action :authenticate_user!, only: [:new, :edit, :delete, :upvote, :custom]
   impressionist actions: [:show]
 
   # GET /contents

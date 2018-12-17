@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181217031247) do
+ActiveRecord::Schema.define(version: 20181217050001) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
@@ -167,6 +167,16 @@ ActiveRecord::Schema.define(version: 20181217031247) do
     t.index ["user_id"], name: "index_tags_users_on_user_id", using: :btree
   end
 
+  create_table "talks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",        limit: 65535
+    t.integer  "creature_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["creature_id"], name: "index_talks_on_creature_id", using: :btree
+    t.index ["user_id"], name: "index_talks_on_user_id", using: :btree
+  end
+
   create_table "tinyimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "alt"
     t.string   "hint"
@@ -223,4 +233,6 @@ ActiveRecord::Schema.define(version: 20181217031247) do
   add_foreign_key "reviews", "users"
   add_foreign_key "tags_users", "tags"
   add_foreign_key "tags_users", "users"
+  add_foreign_key "talks", "creatures"
+  add_foreign_key "talks", "users"
 end

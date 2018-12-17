@@ -7,7 +7,9 @@ class Creature < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :tags
   mount_uploader :thumb, ImageUploader
-  has_mnay :comments
+  has_many :talks
+  acts_as_votable
+  is_impressionable
 
   after_create do
     creature = Creature.find_by(id: self.id)
