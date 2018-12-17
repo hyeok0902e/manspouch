@@ -13,38 +13,60 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     -->
-      <header>
-        <div class="top-con">
-          <a href="/">
-            <div class="main_logo">
-            </div>
-            </a>
-          
-          <div class="nav-main">
-            <ul>
-              <li><a href="/contents/custom/<%= 'all' %>">페이스업 매뉴얼</a></li>
-              <li><a href="/products/custom/<%= 'all' %>">맞춤 제품</a></li>
-              <li><a href="/ranking/category/<%= 'all' %>">랭킹</a></li>
-              <li><a href="/store/category/<%= 'all' %>">스토어</a></li>
-              <li><a href="/creatures/category/<%= 'all' %>">크리에이터 콘텐츠</a></li>
-            </ul>
+    <header>
+      <div class="top-con">
+        <a href="/">
+          <div class="main_logo">
           </div>
+          </a>
+        
+        <div class="nav-main">
+          <ul>
+            <li><a href="/contents/custom/<%= 'all' %>">페이스업 매뉴얼</a></li>
+            <li><a href="/products/custom/<%= 'all' %>">맞춤 제품</a></li>
+            <li><a href="/ranking/category/<%= 'all' %>">랭킹</a></li>
+            <li><a href="/store/category/<%= 'all' %>">스토어</a></li>
+            <li><a href="/creatures/category/<%= 'all' %>">크리에이터 콘텐츠</a></li>
+          </ul>
+        </div>
 
-          <div class="nav-auth">
-            <ul>
-              <% if user_signed_in? %>
-                <li><%= link_to 'MyPouch', '/mypouch/index' %></li>
-                <li><%= link_to 'SignOut', destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                <li><%= link_to '로그인', new_user_session_path %></li>
-                <li><%= link_to '회원가입', new_user_registration_path %></li>
-              <% end %>
-            </ul>
+        <div class="nav-auth">
+          <ul>
+            <% if user_signed_in? %>
+              <li><%= link_to '마이 파우치', '/mypouch/index' %></li>
+              <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to '로그인', new_user_session_path %></li>
+              <li><%= link_to '회원가입', new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+        <%= yield %>
+    </div>
+
+    <footer>
+      <div class="top-con">
+        <div class="f_button">
+          <ul>
+            <li>입점문의</li>
+            <li>회사소개</li>
+            <li>인재채용</li>
+          </ul>
+          <div class="f_ico">
+            <a href="https://www.facebook.com/manspouch"><img src='<%= asset_path 'fb.png'%>' alt="" height="20px" ></a>
+            <img src='<%= asset_path 'ig.png'%>' alt="" height="20px" >
           </div>
         </div>
-      </header>
-    <div class="container">
-      <%= yield %>
-    </div>
+        <div class="f_title"></div>
+        <div class="f_note">
+          TL Company ・ 사업자등록번호 : 618-16-30285 ・ 통신판매업신고번호  0000-0000-0000 [사업자정보확인]<br>
+          대표자명 : Minseok Bang ・ 주소 : 서울 도봉구 도봉로 117길 52-4 1층 ・ 제품사입/입점 문의 : seokk1209@manspouch <br>
+          Copyright, TL Company . All rights reserved.</div>
+      </div>
+    </footer>
   </body>
 </html>
