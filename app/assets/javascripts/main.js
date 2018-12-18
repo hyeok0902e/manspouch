@@ -1,4 +1,14 @@
 $(function () {
+    var windowH = $(window).outerHeight();
+    $('.container').css('min-height',windowH-330+'px')
+
+    $(window).resize(function () { 
+        var windowH = $(window).outerHeight();
+        $('.container').css('min-height',windowH-330+'px');
+        
+    });
+
+
     var nowurl = $(location).attr('href');
 
     if(nowurl.indexOf("/contents") > 0){
@@ -42,8 +52,5 @@ $(function () {
     else if(nowurl.indexOf("/%EB%B0%94%EB%94%94") > 0){
         $('.m_m5').css("color","#646EAB");
         $('.m_m5').css("border-bottom","4px solid #646EAB");
-    }
-    else{
-        console.log("안됨 "+nowurl);
     }
 });
