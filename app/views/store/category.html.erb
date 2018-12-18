@@ -1,23 +1,22 @@
-<nav class="">
+<nav class="m_sub_title">
   <ul>
-    <li><a href="/store/category/<%= 'All' %>">ALL</a></li>
-    <li><a href="/store/category/<%= '스킨케어' %>">스킨케어</a></li>
-    <li><a href="/store/category/<%= '페이스업' %>">페이스업</a></li>
-    <li><a href="/store/category/<%= '헤어' %>">헤어</a></li>
-    <li><a href="/store/category/<%= '바디' %>">바디</a></li>
+    <li><a class="m_m1" href="/store/category/<%= 'all' %>">ALL</a></li>
+    <li><a class="m_m2" href="/store/category/<%= '스킨케어' %>">스킨케어</a></li>
+    <li><a class="m_m3" href="/store/category/<%= '페이스업' %>">페이스업</a></li>
+    <li><a class="m_m4" href="/store/category/<%= '헤어' %>">헤어</a></li>
+    <li><a class="m_m5" href="/store/category/<%= '바디' %>">바디</a></li>
   </ul>
 </nav>
+<nav class="m_sub_title_blank"></nav>
 
-<h3><%= @ca %> 제품s</h3>
-
-<div class="dropdown">
+<article class="dropdown">
   <button onclick="myFunction()" class="dropbtn">필터 ▼</button>
   <div id="myDropdown" class="dropdown-content">
     <a href="/store/filter/<%= 'latest' %>">최신순</a>
     <a href="/store/filter/<%= 'hottest' %>">인기순(리뷰 수)</a>
     <a href="/store/filter/<%= 'price' %>">가격순</a>
   </div>
-</div>
+</article>
 
 <article>
   <% @products.each do |product| %>

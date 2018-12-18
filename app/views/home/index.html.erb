@@ -1,12 +1,13 @@
-<h1>Home#index</h1>
 
-<div class="">
+
+<article class="">
+  <h1>Home#index</h1>
   <p class=""><%= link_to "배너(클릭시 피부분석으로 이동합니다.)", "/mypoucy/survey"%></p>
-</div>
+</article>
 
 <hr>
 
-<div class="">
+<article class="">
 	<h1>인기 콘텐츠</h1>
   <%= link_to "더보기 (클릭시 맞춤콘텐츠 페이지로 이동합니다.)", contents_path %>
 
@@ -39,11 +40,11 @@
       </div>
     <% end %>
 	</div>
-</div>
+</article>
 
 <hr>
 
-<div class="">
+<article class="">
 	<h1>랭킹제품</h1>
   <a href="/ranking/category/<%= 'all' %>">더보기 (클릭시 랭킹제품 페이지로 이동합니다.)</a>
   <% @products.each do |product| %>
@@ -77,4 +78,4 @@
       </div>
     </div>
   <% end %>
-</div>
+</article>
