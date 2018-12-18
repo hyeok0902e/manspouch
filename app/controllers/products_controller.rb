@@ -2,6 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :delete, :custom]
 
+  # 전역변수 초기화
+  @@filter = ""
+
   # GET /products
   # GET /products.json
   def index
@@ -64,12 +67,29 @@ class ProductsController < ApplicationController
   end
 
   def custom
-    @category = params[:category]
-    if @category == "all"
+    @@category = params[:category]
+    if @@category == "all"
       @products = Product.all
     else
-      @products = Product.where(:category => @category)
+      @products = Product.where(:category => @@category)
     end
+
+    if @@filter != ""
+      if @@filter == "latest"
+        @products_normal = @products.order("created_at DESC")
+      elsif @@filter == "hottest"
+        hottest(@products)
+      elsif @@filter == "price"
+        price(@products)
+      end
+    else
+      @products_normal = @products.order('created_at DESC')
+    end
+  end
+
+  def filter
+    @@filter = params[:filter]
+    redirect_to "/products/custom/#{@@category}"
   end
 
   private
@@ -84,5 +104,41 @@ class ProductsController < ApplicationController
                                       :normal, :dry, :oily, :complex, :sensitive,
                                       :notcare, :basecare, :hardcare, :makeup, :idol,
                                       :score)
+    end
+
+    # filter
+    def hottest(products)
+      @productsArray = Array.new(products.count){Array.new(2)}
+      index = 0
+
+      products.each do |product|
+        @productsArray[index][1] = product.id
+        @productsArray[index][0] = product.reviews.count
+        index += 1
+      end
+      @productsArray = @productsArray.sort.reverse
+
+      @products_normal = []
+      for i in 0..(@productsArray.length-1)
+        @products_normal << Product.find(@productsArray[i][1])
+      end
+    end
+
+    # filter
+    def price(products)
+      @productsArray = Array.new(products.count){Array.new(2)}
+      index = 0
+
+      products.each do |product|
+        @productsArray[index][1] = product.id
+        @productsArray[index][0] = product.price
+        index += 1
+      end
+      @productsArray = @productsArray.sort
+
+      @products_normal = []
+      for i in 0..(@productsArray.length-1)
+        @products_normal << Product.find(@productsArray[i][1])
+      end
     end
 end

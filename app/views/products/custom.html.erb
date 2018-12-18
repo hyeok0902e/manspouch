@@ -34,7 +34,7 @@
         <h3><%= product.name %>(<%= product.brand %>)</h3>
         <h5>가격: <%= product.price %></h5>
       </div>
-      <div class=""><%= product.score %></div>
+      <div class=""><%= product.score %>(<%= product.reviews.count %>개)</div>
 
       <div class="">
         <% tags = product.tags %>
@@ -52,10 +52,32 @@
   <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">필터 ▼</button>
     <div id="myDropdown" class="dropdown-content">
-      <a href="/contents/filter/<%= 'hottest' %>">인기순</a>
-      <a href="/contents/filter/<%= 'latest' %>">최신순</a>
+      <a href="/products/filter/<%= 'latest' %>">최신순</a>
+      <a href="/products/filter/<%= 'hottest' %>">인기순(리뷰 수)</a>
+      <a href="/products/filter/<%= 'price' %>">가격순</a>
     </div>
   </div>
+
+  <% @products_normal.each do |product| %>
+    <div class="" style="border: 1px solid #555">
+      <div class="">
+        <span><%= product.category %></span>
+        <%= link_to image_tag(product.thumb.main), product_path(product) %><!-- 썸네일 이미지 -->
+      </div>
+      <div class="">
+        <h3><%= product.name %>(<%= product.brand %>)</h3>
+        <h5>가격: <%= product.price %></h5>
+      </div>
+      <div class=""><%= product.score %>(<%= product.reviews.count %>개)</div>
+
+      <div class="">
+        <% tags = product.tags %>
+        <% tags.each do |tag| %>
+          <span>#<%= tag.name %></span>&nbsp
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </article>
 
 <%= link_to 'New Product', new_product_path %>

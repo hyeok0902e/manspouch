@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
   get "/products/custom/:category" => "products#custom"
+  get "/products/filter/:filter" => "products#filter"
 
   # ranking
   get 'ranking/category/:category' => "ranking#category"

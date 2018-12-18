@@ -87,29 +87,6 @@ class ContentsController < ApplicationController
     end
   end
 
-  def hottest(contents)
-    @contentsArray = Array.new(contents.count){Array.new(2)}
-    index = 0
-
-    contents.each do |content|
-      @contentsArray[index][1] = content.id
-
-      # 만약 좋아요가 없을 경우 0을 입력
-      if content.get_upvotes.size == nil
-        @contentsArray[index][0] = 0
-      else
-        @contentsArray[index][0] = content.get_upvotes.size
-      end
-      index += 1
-    end
-    @contentsArray = @contentsArray.sort.reverse
-
-    @contents_normal = []
-    for i in 0..(@contentsArray.length-1)
-      @contents_normal << Content.find(@contentsArray[i][1])
-    end
-  end
-
   def filter
     @@filter = params[:filter]
     redirect_to "/contents/custom/#{@@category}"
@@ -136,5 +113,29 @@ class ContentsController < ApplicationController
       params.require(:content).permit(:thumb, :title, :subtitle, :body, :link, :category, :keyword,
                                       :normal, :dry, :oily, :complex, :sensitive,
                                       :notcare, :basecare, :hardcare, :makeup, :idol)
+    end
+
+    # filter
+    def hottest(contents)
+      @contentsArray = Array.new(contents.count){Array.new(2)}
+      index = 0
+
+      contents.each do |content|
+        @contentsArray[index][1] = content.id
+
+        # 만약 좋아요가 없을 경우 0을 입력
+        if content.get_upvotes.size == nil
+          @contentsArray[index][0] = 0
+        else
+          @contentsArray[index][0] = content.get_upvotes.size
+        end
+        index += 1
+      end
+      @contentsArray = @contentsArray.sort.reverse
+
+      @contents_normal = []
+      for i in 0..(@contentsArray.length-1)
+        @contents_normal << Content.find(@contentsArray[i][1])
+      end
     end
 end
