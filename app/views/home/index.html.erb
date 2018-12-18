@@ -54,7 +54,18 @@
       </div>
       <div class="">
         <h3><%= product.name %>(<%= product.brand %>)</h3>
-        <h5>가격: <%= product.price %></h5>
+        <%
+					price = product.price.to_s
+					price_string = ""
+					if price.length == 4
+						price_string = price[0] + "," + price[1..3]
+					elsif price.length == 5
+						price_string = price[0..1] + "," + price[2..4]
+					elsif price.length == 6
+						price_string = price[0..2] + "," + price[3..5]
+					end
+				%>
+        <h5>가격: <%= price_string %>원</h5>
       </div>
       <div class=""><%= product.score %></div>
 

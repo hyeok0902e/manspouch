@@ -28,11 +28,12 @@ Rails.application.routes.draw do
   get "/products/filter/:filter" => "products#filter"
 
   # ranking
-  get 'ranking/category/:category' => "ranking#category"
+  get '/ranking/category/:category' => "ranking#category"
 
   # store
-  get 'store/index'
-  get 'store/category/:category' => "store#category"
+  get '/store/index'
+  get '/store/category/:category' => "store#category"
+  get '/store/filter/:filter' => "store#filter"
 
   # creatures
   resources :creatures do
