@@ -241,10 +241,15 @@ footer{
     }
 
     .signup_1{
-        display :none;
+        height:200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        div{
+            display: none;
+        }
     }
 
     .signup_2{
-        display :none;
     }
 }

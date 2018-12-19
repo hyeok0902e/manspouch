@@ -53,6 +53,9 @@ $(function () {
         $('.m_m5').css("color","#646EAB");
         $('.m_m5').css("border-bottom","4px solid #646EAB");
     }
-
-    $('.signup_1').fadeIn(1000);
+    $('.field_s1').fadeIn(2000);
+    $('.field_s1').click(function (e) { 
+        e.preventDefault();
+        $('.field_s2').delay(1500).slideDown(500);
+    });
 });
