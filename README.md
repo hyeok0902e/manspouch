@@ -36,13 +36,14 @@
 
 **2018-12-19**
 - Google Cloud Vision API 연동
-- face.html.erb 구조 잡기
+- survey js 소스 연동
+- mypouch 피부 특성 분석 Process 완성
+- mypouch index 페이지 데이터 세팅
 
 ### To-Do List
 - 태그에 링크 달기(나른한 하루 네이버 블로그 참고)
+- 얼굴사진이 아닐 시 알려주기..
 - Validation 적용하기
-- Google Vision 연동하기
-- 피부 분석 기능 구현
 - 관리자 권한 설정 추가: 일반 사용자 계정과 Admin 계정 구분 → rails Gem 사용하기
 - 카카오톡 & 페이스북 연동
 - 매뉴얼, 제품 삭제 시 S3 파일 삭제되게..

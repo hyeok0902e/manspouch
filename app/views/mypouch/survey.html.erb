@@ -1,5 +1,10 @@
 <h1>Mypouch#survey</h1>
-<img src="<%= @user.face.main %>" alt="">
+<% if @message == true %>
+  <img src="<%= @user.face.main %>" alt="">
+<% elsif @message == false %>
+  정확한 얼굴사진을 다시 등록해 주세요!<br>
+  <%= link_to "뒤로가기", "/mypouch/face" %>
+<% end %>
 
 <div class="s_n"></div>
 <div class="s_q"></div>
