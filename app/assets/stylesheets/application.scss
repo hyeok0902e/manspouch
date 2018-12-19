@@ -18,6 +18,7 @@
 body, ul, li{ margin : 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; letter-spacing: -1px;}
 ul, li { list-style: none; margin:0; padding: 0; }
 a { text-decoration: none; color:black; }
+.blue_btn { width:260px;height:40px;border-radius: 50px;background:rgb(70, 84, 234);color:white;font-size:16px;line-height:37px;box-shadow: 0px 3px 10px rgba(34, 62, 223,0.4);cursor: pointer; }
 input[type="password"],input[type="text"],input[type="email"] { padding-left:10px;line-height:30px;background: none; border:0; border-bottom:2px solid #ccc; font-size:16px; transition:.5s;}
 input[type="password"]:hover,input[type="text"]:hover,input[type="email"]:hover { border-bottom:2px solid rgb(70, 130, 234); transition:.5s;}
 input[type="password"]:focus,input[type="text"]:focus,input[type="email"]:focus { border-bottom:2px solid #6B46EA; transition:.5s; outline: none;}
@@ -241,15 +242,50 @@ footer{
     }
 
     .signup_1{
-        height:200px;
+        height:220px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         div{
             display: none;
         }
+
+        .sign_next{
+            margin:10px auto;
+
+        }
     }
 
     .signup_2{
+        height:220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        div{
+            // display: none;
+        }
+
+        .f_gender{
+            margin:10px 0;
+        }
+        .gender{
+            display:none;
+        }
+
+        .gender:checked + label{
+            transition:.5s;
+            color:white;
+            background:rgb(70, 84, 234);
+        }
+        .gender+label{
+            font-size:14px;
+            transition:.5s;
+            border-radius:50px;
+            color:black;
+            padding:6px 50px;
+            background:#ddd;
+            cursor: pointer;
+        }
     }
+    
 }
