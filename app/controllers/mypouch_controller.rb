@@ -6,13 +6,34 @@ class MypouchController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:result, :survey, :keyword] # Invalid AuthenticityToken Error
 
   def index
+    @user = User.find_by(id: current_user.id)
+    @contents_all = Content.all
+    @products_all = Product.all
+    @contents = []
+    @products = []
+
+    @contents_all.each do |content|
+      if (content.category=="스킨케어") || (content.category=="페이스업")
+        @contents << content
+      end
+    end
+    @contents = @contents[0..3]
+
+    @products_all.each do |product|
+      if (product.category=="스킨케어") || (product.category=="페이스업")
+        @products << product
+      end
+    end
+    @products = @products[0..3]
   end
 
   def face
+    @user = User.find_by(id: current_user.id)
   end
 
   def survey
     @user = User.find_by(id: current_user.id)
+    @message = true
     if params.key?("user")
       @user.face.store!(params[:user][:face])
       @user.face = params[:user][:face]
@@ -27,6 +48,10 @@ class MypouchController < ApplicationController
       # face detect
       image = vision.image @user.face.path
       faces = image.faces
+
+      if faces.length == 0
+        @message = false
+      end
 
       # draw line - face detect
       image = Magick::Image.read(@user.face.path).first
@@ -48,6 +73,7 @@ class MypouchController < ApplicationController
 
         draw.rectangle x1, y1, x2, y2
         draw.draw image
+
       end
 
       # save face-detect img
@@ -94,7 +120,17 @@ class MypouchController < ApplicationController
 
     @user = User.find_by(id: current_user.id)
     if params["usertype"] != nil
-      @user.usertype = params["usertype"]
+      if params["usertype"] == "notcare"
+        @user.usertype = "무관심형"
+      elsif params["usertype"] == "basecare"
+        @user.usertype = "기초케어형"
+      elsif params["usertype"] == "hardcare"
+        @user.usertype = "심화케어형"
+      elsif params["usertype"] == "makeup"
+        @user.usertype = "적극적화장형"
+      elsif params["usertype"] == "idol"
+        @user.usertype = "아이돌형"
+      end
     end
 
     # keyword 안의 각 키워드를 Tag(user.tags) 모델에 저장하기
