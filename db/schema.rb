@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(version: 20181217050001) do
     t.string   "skintype"
     t.string   "usertype"
     t.string   "profile"
+    t.string   "face"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

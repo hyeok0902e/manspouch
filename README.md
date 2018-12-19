@@ -34,6 +34,10 @@
 **2018-12-18**
 - 뷰 파일 수정 + 표시 데이터 세팅 (메인 메뉴 페이지들)
 
+**2018-12-19**
+- Google Cloud Vision API 연동
+- face.html.erb 구조 잡기
+
 ### To-Do List
 - 태그에 링크 달기(나른한 하루 네이버 블로그 참고)
 - Validation 적용하기

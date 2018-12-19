@@ -1,6 +1,9 @@
+require "google/cloud/vision"
+require "rmagick"
+
 class MypouchController < ApplicationController
   before_action :authenticate_user!
-  skip_before_filter :verify_authenticity_token, only: [:result] # Invalid AuthenticityToken Error
+  skip_before_filter :verify_authenticity_token, only: [:result, :survey] # Invalid AuthenticityToken Error
 
   def index
   end
@@ -9,6 +12,20 @@ class MypouchController < ApplicationController
   end
 
   def survey
+    @user = User.find_by(id: current_user.id)
+    if params.key?("user")
+      @user.face.store!(params[:user][:face])
+      @user.face = params[:user][:face]
+      @user.save
+
+      vision = Google::Cloud::Vision.new(
+        project: "savvy-badge-225906",
+        keyfile: "./google/key.json"
+      )
+    else
+      redirect_to "/"
+    end
+
   end
 
   def keyword

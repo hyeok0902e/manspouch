@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # mypouch
   get 'mypouch/index' => "mypouch#index"
   get 'mypouch/face'=> "mypouch#face"
+  post 'mypouch/survey' => "mypouch#survey"
   get 'mypouch/survey' => "mypouch#survey"
   get 'mypouch/keyword'=> "mypouch#keyword"
   post 'mypouch/result' => "mypouch#result"

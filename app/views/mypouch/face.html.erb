@@ -1,5 +1,6 @@
 <h1>Mypouch#face</h1>
-<p>Find me in app/views/mypouch/face.html.erb</p>
-
-
-<%= link_to '다음으로 넘어가기', mypouch_survey_path%> 
+<form action="/mypouch/survey" enctype="multipart/form-data" method="post">
+  <label for="user_face">Face</label>
+  <input accept="image/png image/gif image/jpg" type="file" name="user[face]" multipl="true" id="user_face">
+  <input type="submit" value="Next">
+</form>
