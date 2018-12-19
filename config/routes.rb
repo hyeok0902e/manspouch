@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'mypouch/face'=> "mypouch#face"
   post 'mypouch/survey' => "mypouch#survey"
   get 'mypouch/survey' => "mypouch#survey"
-  get 'mypouch/keyword'=> "mypouch#keyword"
+  post 'mypouch/keyword'=> "mypouch#keyword"
+  get 'mypouch/keyword'=> "mypouch#face"
   post 'mypouch/result' => "mypouch#result"
   get 'mypouch/result' => "home#index"
 

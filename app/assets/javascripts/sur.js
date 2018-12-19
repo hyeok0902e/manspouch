@@ -668,19 +668,23 @@ $.nintendo = function(){
             break;
         }
         case 26:{
-            $('.s_q').append("나의 피부고민은 <br> 무엇인가요?");
-            now_show += 1;
+            $('.s_q').append("분석이 완료되었습니다. <br> 당신의 피부타입을 확인하세요.");
+            now_show = "";
             $.btnappend(4);
             break;
         }
         case 27:{
             $('.s_q').append("결과를<br>확인하세요.");
-            now_show = "확인"
+            now_show = "";
             break;
         }
     }
 
-    if(now_show <10){
+
+    if(now_show == ""){
+      $('.s_n').append("");
+    }
+    else if(now_show < 10){
         $('.s_n').append("0" + now_show);
     }
     else{
@@ -704,11 +708,11 @@ $.btnappend = function(z){
         $('.blank').append($('<div id="idk" class="btn">모르겠어요</div>'));
     }
     else if(z==4){
-        $('.blank').append($('<div id="1" class="btn_small">피지</div>'));
-        $('.blank').append($('<div id="2" class="btn_small">주름</div>'));
-        $('.blank').append($('<div id="3" class="btn_small">주근깨</div>'));
-        $('.blank').append($('<div id="4" class="btn_small">여드름</div>'));
-        $('.blank').append($('<div id="5" class="btn_small">아토피</div>'));
+        // $('.blank').append($('<div id="1" class="btn_small">피지</div>'));
+        // $('.blank').append($('<div id="2" class="btn_small">주름</div>'));
+        // $('.blank').append($('<div id="3" class="btn_small">주근깨</div>'));
+        // $('.blank').append($('<div id="4" class="btn_small">여드름</div>'));
+        // $('.blank').append($('<div id="5" class="btn_small">아토피</div>'));
         $('.blank').append($('<br><div id="chek" class="btn">결과전송</div>'));
     }
 }
@@ -716,56 +720,63 @@ $.btnappend = function(z){
 
 $.finale = function(){
     var rtnum = re_type.length;
-    var rtshow = "";
+    // var rtshow = "";
     var result_show = "";
-    for(i=0;i<rtnum;i++){
-        switch(re_type[i]*1){
-            case 1:{
-                rtshow += "#피지 "
-                break;
-            }
-            case 2:{
-                rtshow += "#주름 "
-                break;
-            }
-            case 3:{
-                rtshow += "#주근깨 "
-                break;
-            }
-            case 4:{
-                rtshow += "#여드름 "
-                break;
-            }
-            case 5:{
-                rtshow += "#아토피 "
-                break;
-            }
-        }
-    }
+    // for(i=0;i<rtnum;i++){
+    //     switch(re_type[i]*1){
+    //         case 1:{
+    //             rtshow += "#피지 "
+    //             break;
+    //         }
+    //         case 2:{
+    //             rtshow += "#주름 "
+    //             break;
+    //         }
+    //         case 3:{
+    //             rtshow += "#주근깨 "
+    //             break;
+    //         }
+    //         case 4:{
+    //             rtshow += "#여드름 "
+    //             break;
+    //         }
+    //         case 5:{
+    //             rtshow += "#아토피 "
+    //             break;
+    //         }
+    //     }
+    // }
 
     switch(result){
         case 1:{
-            result_show = "건성타입 "
+            result_show = "건성"
             break;
         }
         case 2:{
-            result_show = "일반타입 "
+            result_show = "일반"
             break;
         }
         case 3:{
-            result_show = "지성타입 "
+            result_show = "지성"
             break;
         }
         case 4:{
-            result_show = "복합성타입"
+            result_show = "복합성"
             break;
         }
         case 5:{
-            result_show = "민감성타입 "
+            result_show = "민감성"
             break;
         }
     }
-    $('.blank').append('<div class="btn">'+result_show+'</div> <div class="btn">'+rtshow+'</div>');
+    // $('.blank').append('<div class="btn">'+result_show+'</div> <div class="btn">'+rtshow+'</div>');
+
+    // hidden input 태그 'Skintype'에 피부타입 결과 전달하기
+    document.getElementById("skintype").value = result_show;
+    // Submit 버튼 나타내기
+    $('#survey-btn').attr('type', 'submit');
+    // 피부타입 분석 결과 보여주기
+    $('.blank').append('<div class="btn">' + result_show + '타입</div>');
 }
 // 결과를 정리해서 화면에 표출합니다.
 // 최초 실행용 함수.
