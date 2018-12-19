@@ -8,6 +8,8 @@ var result = 0;
 var re_type = new Array();
 
 $(document).ready(function () {
+    $.nintendo();
+
     $(document).on('click',"#yes",function (e) {
         e.preventDefault();
         clicknum = 0;
@@ -25,7 +27,6 @@ $(document).ready(function () {
         clicknum = 2;
         $.mario();
     });
-    console.log(clicknum);
 
 
     $(document).on('click',".btn_small",function (e) {
@@ -40,7 +41,6 @@ $(document).ready(function () {
         $('div').find('.btn_click').each(function(){
             if(nn < n){
                 re_type[nn] = $(this).attr('id');
-                console.log(re_type);
                 nn++;
             }
         });
@@ -505,12 +505,10 @@ $.mario = function(){
     }
     $.kirby();
     $.nintendo();
-    console.log(now_real);
 }
 // mario 함수가 누른 버튼에 따라 다음으로 넘어갈 문제 번호를 정합니다. 이후 kirby와 nintendo 함수를 부릅니다.
 
 $.kirby = function(){
-    console.log(result);
     $('.s_n').empty();
     $('.s_q').empty();
     $('.blank').empty();
@@ -523,7 +521,6 @@ $.nintendo = function(){
             $('.s_q').append("모공이 크지 않다.");
             now_show += 1;
             $.btnappend(1);
-            console.log("테스트")
             break;
         }
         case 2:{
@@ -771,6 +768,4 @@ $.finale = function(){
     $('.blank').append('<div class="btn">'+result_show+'</div> <div class="btn">'+rtshow+'</div>');
 }
 // 결과를 정리해서 화면에 표출합니다.
-
-$.nintendo();
 // 최초 실행용 함수.
