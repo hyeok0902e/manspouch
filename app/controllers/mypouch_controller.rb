@@ -18,47 +18,47 @@ class MypouchController < ApplicationController
       @user.face = params[:user][:face]
       @user.save
 
-      # import vision api
-      vision = Google::Cloud::Vision.new(
-        project: "savvy-badge-225906",
-        keyfile: "./google/key.json"
-      )
-
-      # face detect
-      image = vision.image @user.face.path
-      faces = image.faces
-
-      # draw line - face detect
-      image = Magick::Image.read(@user.face.path).first
-      faces.each do |face|
-        puts "Face bounds:"
-        face.bounds.face.each do |vector|
-          puts "(#{vector.x}, #{vector.y})"
-        end
-
-        draw = Magick::Draw.new
-        draw.stroke = "green"
-        draw.stroke_width 5
-        draw.fill_opacity 0
-
-        x1 = face.bounds.face[0].x.to_i
-        y1 = face.bounds.face[0].y.to_i
-        x2 = face.bounds.face[2].x.to_i
-        y2 = face.bounds.face[2].y.to_i
-
-        draw.rectangle x1, y1, x2, y2
-        draw.draw image
-      end
-
-      # save face-detect img
-      temp_file = Tempfile.new(['temp', '.png'])
-      image.write(temp_file.path)
-      @user.face = temp_file
-      @user.save
-
-      # close temp
-      temp_file.close
-      temp_file.unlink
+      # # import vision api
+      # vision = Google::Cloud::Vision.new(
+      #   project: "savvy-badge-225906",
+      #   keyfile: "./google/key.json"
+      # )
+      #
+      # # face detect
+      # image = vision.image @user.face.path
+      # faces = image.faces
+      #
+      # # draw line - face detect
+      # image = Magick::Image.read(@user.face.path).first
+      # faces.each do |face|
+      #   puts "Face bounds:"
+      #   face.bounds.face.each do |vector|
+      #     puts "(#{vector.x}, #{vector.y})"
+      #   end
+      #
+      #   draw = Magick::Draw.new
+      #   draw.stroke = "green"
+      #   draw.stroke_width 5
+      #   draw.fill_opacity 0
+      #
+      #   x1 = face.bounds.face[0].x.to_i
+      #   y1 = face.bounds.face[0].y.to_i
+      #   x2 = face.bounds.face[2].x.to_i
+      #   y2 = face.bounds.face[2].y.to_i
+      #
+      #   draw.rectangle x1, y1, x2, y2
+      #   draw.draw image
+      # end
+      #
+      # # save face-detect img
+      # temp_file = Tempfile.new(['temp', '.png'])
+      # image.write(temp_file.path)
+      # @user.face = temp_file
+      # @user.save
+      #
+      # # close temp
+      # temp_file.close
+      # temp_file.unlink
     else
       redirect_to "/"
     end

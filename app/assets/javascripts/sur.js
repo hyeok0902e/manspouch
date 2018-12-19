@@ -8,19 +8,19 @@ var result = 0;
 var re_type = new Array();
 
 $(document).ready(function () {
-    $(document).on('click',"#yes",function (e) { 
+    $(document).on('click',"#yes",function (e) {
         e.preventDefault();
         clicknum = 0;
         $.mario();
     });
 
-    $(document).on('click',"#no",function (e) { 
+    $(document).on('click',"#no",function (e) {
         e.preventDefault();
         clicknum = 1;
         $.mario();
     });
 
-    $(document).on('click',"#idk",function (e) { 
+    $(document).on('click',"#idk",function (e) {
         e.preventDefault();
         clicknum = 2;
         $.mario();
@@ -28,12 +28,12 @@ $(document).ready(function () {
     console.log(clicknum);
 
 
-    $(document).on('click',".btn_small",function (e) { 
+    $(document).on('click',".btn_small",function (e) {
         e.preventDefault();
         $(this).toggleClass('btn_click');
     });
 
-    $(document).on('click',"#chek",function (e) { 
+    $(document).on('click',"#chek",function (e) {
         e.preventDefault();
         var n = $('div').find('.btn_click').length;
         var nn = 0;
@@ -523,162 +523,163 @@ $.nintendo = function(){
             $('.s_q').append("모공이 크지 않다.");
             now_show += 1;
             $.btnappend(1);
+            console.log("테스트")
             break;
         }
         case 2:{
             $('.s_q').append("모공이 매우 작다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 3:{
             $('.s_q').append("모공이 매우 크다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 4:{
             $('.s_q').append("모공 크기가 적당하다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 5:{
             $('.s_q').append("모공 크기가 부분적으로 다르다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 6:{
             $('.s_q').append("눈 입 주위에 잔주름이 많다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 7:{
             $('.s_q').append("겨울철은 당기고 여름철은 유분이 많다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 8:{
             $('.s_q').append("파뷰거 두껍고 피지 분비가 많다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 9:{
             $('.s_q').append("윤기가 없고 피부도 칙칙하다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 10:{
             $('.s_q').append("얼굴이 자주 빨개진다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 11:{
             $('.s_q').append("피부톤이 밝고 고른편이다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 12:{
             $('.s_q').append("환절기에 피부트러블이 생긴다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 13:{
             $('.s_q').append("피부톤이 전체적으로 어둡다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 14:{
             $('.s_q').append("세안 후 당기고 T존 부위는 유분이 많다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 15:{
             $('.s_q').append("얼굴이 많이 건조하다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 16:{
             $('.s_q').append("피부에 윤기가 없다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 17:{
             $('.s_q').append("나이에 비해 피부가 좋다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 18:{
             $('.s_q').append("화장이 잘 지워지고 유분이 많다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 19:{
             $('.s_q').append("T존 부위만 화장이 잘 지워진다.");
             now_show += 1;
             $.btnappend(2);
-            break;    
+            break;
         }
         case 20:{
             $('.s_q').append("피곤하면 트러블이 생긴다.");
             now_show += 1;
             $.btnappend(2);
-            break;    
+            break;
         }
         case 21:{
             $('.s_q').append("세안 후 얼굴이 전체적으로 당긴다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 22:{
             $('.s_q').append("화장이 오래간다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 23:{
             $('.s_q').append("여드름성 트러블이 잘 일어난다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 24:{
             $('.s_q').append("얼굴이 부분적으로 번들거린다.");
             now_show += 1;
             $.btnappend(1);
-            break;    
+            break;
         }
         case 25:{
             $('.s_q').append("화장품이나 비누를 바꾸면 트러블이 생긴다.");
             now_show += 1;
             $.btnappend(3);
-            break;    
+            break;
         }
         case 26:{
             $('.s_q').append("나의 피부고민은 <br> 무엇인가요?");
             now_show += 1;
             $.btnappend(4);
-            break;    
+            break;
         }
         case 27:{
             $('.s_q').append("결과를<br>확인하세요.");
             now_show = "확인"
-            break;    
+            break;
         }
     }
 
@@ -744,7 +745,7 @@ $.finale = function(){
             }
         }
     }
-    
+
     switch(result){
         case 1:{
             result_show = "건성타입 "
