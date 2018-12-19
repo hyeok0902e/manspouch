@@ -21,7 +21,7 @@ a { text-decoration: none; color:black; }
 input[type="password"],input[type="text"],input[type="email"] { padding-left:10px;line-height:30px;background: none; border:0; border-bottom:2px solid #ccc; font-size:16px; transition:.5s;}
 input[type="password"]:hover,input[type="text"]:hover,input[type="email"]:hover { border-bottom:2px solid rgb(70, 130, 234); transition:.5s;}
 input[type="password"]:focus,input[type="text"]:focus,input[type="email"]:focus { border-bottom:2px solid #6B46EA; transition:.5s; outline: none;}
-input:-webkit-autofill{  -webkit-box-shadow: 0 0 0 30px #fff inset ; -webkit-text-fill-color: #000; }
+input:-webkit-autofill{  box-shadow: 0 0 0 30px #fff inset ; -webkit-text-fill-color: #000; }
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active{ transition: background-color 5000s ease-in-out s; }
 // 기본값
 
