@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'mypouch/survey' => "mypouch#survey"
   get 'mypouch/keyword'=> "mypouch#keyword"
   post 'mypouch/result' => "mypouch#result"
+  get 'mypouch/result' => "home#index"
 
   # contents
   resources :contents do

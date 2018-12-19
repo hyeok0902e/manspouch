@@ -73,7 +73,16 @@ class ContentsController < ApplicationController
     if @@category == "all"
       @contents = Content.all
     else
-      @contents = Content.where(:category => @@category)
+      if @@category == "skincare"
+        @cate_ko = "스킨케어"
+      elsif @@category == "faceup"
+        @cate_ko = "페이스업"
+      elsif @@category == "hair"
+        @cate_ko = "헤어"
+      else
+        @cate_ko = "바디"
+      end
+      @contents = Content.where(:category => @cate_ko)
     end
 
     if @@filter != ""

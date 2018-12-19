@@ -69,7 +69,16 @@ class CreaturesController < ApplicationController
     if @category == "all"
       @creatures = Creature.all
     else
-      @creatures = Creature.where(:category => @category)
+      if @category == "skincare"
+        @cate_ko = "스킨케어"
+      elsif @category == "faceup"
+        @cate_ko = "페이스업"
+      elsif @category == "hair"
+        @cate_ko = "헤어"
+      else
+        @cate_ko = "바디"
+      end
+      @creatures = Creature.where(:category => @cate_ko)
     end
   end
 

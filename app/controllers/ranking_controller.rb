@@ -8,7 +8,16 @@ class RankingController < ApplicationController
       @products = Product.all
       rank_of_products(@products)
     else
-      @products = Product.where(:category => @category)
+      if @category == "skincare"
+        @cate_ko = "스킨케어"
+      elsif @category == "faceup"
+        @cate_ko = "페이스업"
+      elsif @category == "hair"
+        @cate_ko = "헤어"
+      else
+        @cate_ko = "바디"
+      end
+      @products = Product.where(:category => @cate_ko)
       rank_of_products(@products)
     end
   end

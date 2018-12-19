@@ -1,21 +1,82 @@
 <h1>Mypouch#keyword</h1>
 
 <form action="/mypouch/result" method="post" class="user_check_keyword">
-  <h3>관심 키워드 선택</h3>
-  <input type="checkbox" name="a" value="#key1" id="key1">
-  <label for="key1">key1</label>
+  <h3><%= @user.nickname %>님이 원하는 화장품 사용 단계를 선택해주세요.</h3>
 
-  <input type="checkbox" name="b" value="#key2" id="key2">
-  <label for="key2">key2</label>
+  <input type="radio" name="usertype" value="notcare" id="usertype">
+  <label for="usertype">무관심형</label>
+  <input type="radio" name="usertype" value="basecare" id="usertype">
+  <label for="usertype">기초케어형</label>
+  <input type="radio" name="usertype" value="hardcare" id="usertype">
+  <label for="usertype">심화케어형</label>
+  <input type="radio" name="usertype" value="makeup" id="usertype">
+  <label for="usertype">적극적화장형</label>
+  <input type="radio" name="usertype" value="idol" id="usertype">
+  <label for="usertype">아이돌</label>
 
-  <input type="checkbox" name="c" value="#key3" id="key3">
-  <label for="key3">key3</label>
+  <% temp1 = ['aa', 'ab', 'ac', 'ad', 'ae', 'af',
+              'ag', 'ah', 'ai', 'aj', 'ak', 'al',
+              'am', 'an', 'ao', 'ap', 'aq', 'ar'] %>
+  <h3><%= @user.nickname %>님의 피부고민을 선택해주세요.</h3>
+  <input type="checkbox" name="<%= temp1[0] %>" value="#주름" id="key1">
+  <label for="key1">주름</label>
+  <input type="checkbox" name="<%= temp1[1] %>" value="#피지" id="key2">
+  <label for="key2">피지</label>
+  <input type="checkbox" name="<%= temp1[2] %>" value="#잡티" id="key3">
+  <label for="key3">잡티</label>
+  <input type="checkbox" name="<%= temp1[3] %>" value="#넓은모공" id="key4">
+  <label for="key4">넓은모공</label>
+  <input type="checkbox" name="<%= temp1[4] %>" value="#피부탄력저하" id="key5">
+  <label for="key5">피부탄력저하</label>
+  <input type="checkbox" name="<%= temp1[5] %>" value="#아토피" id="key6">
+  <label for="key6">아토피</label>
 
-  <input type="checkbox" name="d" value="#key4" id="key4">
-  <label for="key4">key4</label>
+  <input type="checkbox" name="<%= temp1[6] %>" value="#여드름" id="key7">
+  <label for="key7">여드름</label>
+  <input type="checkbox" name="<%= temp1[7] %>" value="#건조한피부" id="key8">
+  <label for="key8">건조한피부</label>
+  <input type="checkbox" name="<%= temp1[8] %>" value="#뾰루지" id="key9">
+  <label for="key9">뾰루지</label>
+  <input type="checkbox" name="<%= temp1[9] %>" value="#각질" id="key10">
+  <label for="key10">각질</label>
+  <input type="checkbox" name="<%= temp1[10] %>" value="#기미" id="key11">
+  <label for="key11">기미</label>
+  <input type="checkbox" name="<%= temp1[11] %>" value="#다크써클" id="key12">
+  <label for="key12">다크써클</label>
 
-  <input type="checkbox" name="e" value="#key5" id="key5">
-  <label for="key5">key5</label>
+  <input type="checkbox" name="<%= temp1[12] %>" value="#두피여드름" id="key13">
+  <label for="key13">두피여드름</label>
+  <input type="checkbox" name="<%= temp1[13] %>" value="#비듬" id="key14">
+  <label for="key14">비듬</label>
+  <input type="checkbox" name="<%= temp1[14] %>" value="#탈모" id="key15">
+  <label for="key15">탈모</label>
+  <input type="checkbox" name="<%= temp1[15] %>" value="#바디여드름" id="key16">
+  <label for="key16">바디여드름</label>
+  <input type="checkbox" name="<%= temp1[16] %>" value="#바디각질" id="key17">
+  <label for="key17">바디각질</label>
+  <input type="checkbox" name="<%= temp1[17] %>" value="#바디건조" id="key18">
+  <label for="key18">바디건조</label>
+
+  <% temp2 = ['ba', 'bb', 'bc', 'bd', 'be', 'bf',
+              'bg', 'bh'] %>
+  <h3><%= @user.nickname %>님의 관심 키워드를 선택해주세요.</h3>
+  <input type="checkbox" name="<%= temp2[0] %>" value="#면접" id="key19">
+  <label for="key19">면접</label>
+  <input type="checkbox" name="<%= temp2[1] %>" value="#소개팅" id="key20">
+  <label for="key20">소개팅</label>
+  <input type="checkbox" name="<%= temp2[2] %>" value="#가벼운" id="key21">
+  <label for="key21">가벼운</label>
+  <input type="checkbox" name="<%= temp2[3] %>" value="#간편한" id="key22">
+  <label for="key22">간편한</label>
+  <input type="checkbox" name="<%= temp2[4] %>" value="#데이트" id="key23">
+  <label for="key23">데이트</label>
+  <input type="checkbox" name="<%= temp2[5] %>" value="#대학생" id="key24">
+  <label for="key24">대학생</label>
+  <input type="checkbox" name="<%= temp2[6] %>" value="#회사원" id="key25">
+  <label for="key25">회사원</label>
+  <input type="checkbox" name="<%= temp2[7] %>" value="#비즈니스" id="key26">
+  <label for="key26">비즈니스</label>
+  <br>
 
   <input type="submit" value="분석결과 보기">
 </form>
