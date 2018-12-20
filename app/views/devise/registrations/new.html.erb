@@ -5,10 +5,10 @@
       <%= devise_error_messages! %>
         <div class="signup_1">
 
-          <div class="field_s1">
-            <%= f.email_field :email, class:"sign_email",placeholder:"ID ( 이메일 형식 )" %>
-          </div>
           <div class="fs1_error">중복된 이메일입니다.</div>
+          <div class="field_s1">
+            <%= f.email_field :email, autocomplete="off",class:"sign_email",placeholder:"ID ( 이메일 형식 )" %>
+          </div>
 
           <div class="field_s2">
             <% if @minimum_password_length %>
@@ -19,7 +19,7 @@
           <div class="field_s3">
             <%= f.password_field :password_confirmation, class:"sign_pwd2", placeholder:"비밀번호 확인"%>
           </div>
-          <div class="fs3_error">중복된 이메일입니다.</div>
+          <div class="fs3_error">비밀번호와 똑같이 써주세요.</div>
 
           <div class="sign_next blue_btn">
             넘어가기
