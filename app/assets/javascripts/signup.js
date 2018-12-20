@@ -1,18 +1,22 @@
 $(function () {
     $('.field_s1').fadeIn(2000);
-    $('.field_s1').keyup(function (e) { 
-        e.preventDefault();
-        $('.field_s2').delay(700).slideDown(500);
-    });
 
     $('.sign_email').keyup(function (e) { 
         var email11 = $(this).val();
 
+        console.log(email11);
         $.ajax({url: '/check_email',method: 'POST',
         data: {email : email11},
         success: function(response){
             if(response && response.message=='ERROR'){
-                alert("This Email already taken")
+                $('.sign_email').css("border-bottom","2px solid #D550A2");
+                $('.field_s2').slideUp(500);
+                $('.fs1_error').slideDown(500);
+            }
+            else{
+                $('.sign_email').css("border-bottom","2px solid #875AED");
+                $('.field_s2').slideDown(500);
+                $('.fs1_error').slideUp(500);
             }
         }});
     });
