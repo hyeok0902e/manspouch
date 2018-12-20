@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  skip_before_filter :verify_authenticity_token, only: [:check_email]
   def index
     # 인기 콘텐츠
   	@contents = Content.all
