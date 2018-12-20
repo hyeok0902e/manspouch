@@ -3,8 +3,6 @@ $(function () {
 
     $('.sign_email').keyup(function (e) { 
         var email11 = $(this).val();
-
-        console.log(email11);
         $.ajax({url: '/check_email',method: 'POST',
         data: {email : email11},
         success: function(response){
@@ -27,6 +25,7 @@ $(function () {
         var pwd1 = $('.sign_pwd1').val();
         if(pwd1.length < 6){
             $('.sign_pwd1').css("border-bottom","2px solid #D550A2");
+            $('.sign_next').slideUp(500);
         }
         else{
             $('.sign_pwd1').css("border-bottom","2px solid #875AED");
@@ -50,6 +49,7 @@ $(function () {
         }
         else{
             $('.sign_pwd2').css("border-bottom","2px solid #D550A2");
+            $('.sign_next').slideUp(500);
         }
 
         pwd1 = "";
@@ -61,6 +61,7 @@ $(function () {
         
         $('.signup_1').slideUp(500);    
         $('.field').delay(500).fadeIn(500);    
+        $('.signin_text').empty().append("<span>회원 가입</span><br>1단계 - 2단계 : 추가 회원정보 - 3단계" );
     });
 
     $('.sign_tel').keyup(function (e) { 
