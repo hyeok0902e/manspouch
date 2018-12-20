@@ -1,4 +1,5 @@
 class Creature < ApplicationRecord
+  # validation
   validates :title, :presence => true
   validates :subtitle, :presence => true
   validates :body, :presence => true
@@ -10,6 +11,7 @@ class Creature < ApplicationRecord
   has_many :talks
   acts_as_votable
   is_impressionable
+  resourcify
 
   after_create do
     creature = Creature.find_by(id: self.id)

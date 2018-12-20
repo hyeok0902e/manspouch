@@ -2,6 +2,7 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :authenticate_user!, only: [:new, :edit, :delete, :upvote, :custom]
   impressionist actions: [:show]
+  load_and_authorize_resource
 
   # 전역변수 초기화
   @@filter = ""
