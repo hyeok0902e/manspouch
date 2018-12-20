@@ -1,14 +1,15 @@
 <article>
   <div class="signin">
-      <div class="signin_text"><span>회원 가입</span><br>1단계 : 기본 회원정보 - 2단계 - 3단계</div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+      <div class="signin_text"><span>회원 가입</span><br><b>1단계 : 기본 회원정보</b> - 2단계 - 3단계</div>
+      <%= form_for(resource, as: resource_name,url: registration_path(resource_name)) do |f| %>
+      <!-- <%= devise_error_messages! %> -->
         <div class="signup_1">
 
           <div class="field_s1">
             <%= f.email_field :email, autocomplete:"off",class:"sign_email",placeholder:"ID ( 이메일 형식 )" %>
           </div>
           <div class="fs1_error">중복된 이메일입니다.</div>
+          <div class="fs12_error">이메일 형식으로 입력하세요. (영어)</div>
           
           <div class="field_s2">
             <% if @minimum_password_length %>
@@ -30,12 +31,16 @@
         <div class="signup_2">
 
           <div class="field">
-            <%= f.text_field :nickname, class:"sign_nick", placeholder:"닉네임" %>
+            <%= f.text_field :nickname, class:"sign_nick", placeholder:"닉네임 ( 3자 이상 ~ 10자 이하 )" %>
           </div>
+          <div class="fs4_error">특수기호, 뛰어쓰기는 사용할수 없습니다.</div>
+          <div class="fs41_error">글자수를 확인하세요.</div>
 
           <div class="field">
             <%= f.text_field :phone , class:"sign_tel", placeholder:"전화번호 ( 숫자만 입력 )"%>
           </div>
+          <div class="fs5_error">숫자만 사용해 전화번호를 입력하세요.</div>
+
           <div class="field f_gender">
             <%= f.radio_button :sex, "남성", class:"gender" ,id:"man"%>
             <%= f.label :sex, "남성" , for:"man"%>
@@ -44,8 +49,8 @@
             <%= f.label :sex, "여성" , for:"woman"%>
           </div>
           <div class="field">
-            <%= f.label :나이 %>
-            <%= f.select(:age, ['10대후반', '20대초반', '20대후반', '30대초반', '30대후반', '40대이상'] , {}, { :class => ''}) %>
+            <%= f.label :나이 %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= f.select(:age, ['10대후반', '20대초반', '20대후반', '30대초반', '30대후반', '40대이상'] , {}, { :class => 'sign_select'}) %>
           </div>
         </div>
           <div class="field">

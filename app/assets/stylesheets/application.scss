@@ -262,7 +262,7 @@ footer{
         flex-direction: column;
         justify-content: center;
         div{
-            // display: none;
+            display: none;
         }
 
         .f_gender{
@@ -286,6 +286,13 @@ footer{
             background:#ddd;
             cursor: pointer;
         }
+
+        .sign_select{
+            margin-top:10px;
+        }
+
+
+
     }
     
 }
