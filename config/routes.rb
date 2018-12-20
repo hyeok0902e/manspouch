@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
 
+  # check email uniqueness in js whenever keypress
+  post "/check_email" => "home#check_email"
+
   # mypouch
   get 'mypouch/index' => "mypouch#index"
   get 'mypouch/face'=> "mypouch#face"
