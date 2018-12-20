@@ -5,6 +5,18 @@ $(function () {
         $('.field_s2').delay(700).slideDown(500);
     });
 
+    $('.sign_email').keyup(function (e) { 
+        var email11 = $(this).val();
+
+        $.ajax({url: '/check_email',method: 'POST',
+        data: {email : email11},
+        success: function(response){
+            if(response && response.message=='ERROR'){
+                alert("This Email already taken")
+            }
+        }});
+    });
+
     $('.sign_pwd1').keyup(function (e) { 
         e.preventDefault();
 
@@ -45,6 +57,20 @@ $(function () {
         
         $('.signup_1').slideUp(500);    
         $('.field').delay(500).fadeIn(500);    
+    });
+
+    $('.sign_tel').keyup(function (e) { 
+        e.preventDefault();
+
+        var tel = $('.sign_tel').val();
+        var telnum =  /(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/g;
+        
+        if(telnum.test(tel)){
+            $('.sign_tel').css("border-bottom","2px solid #875AED");
+        }
+        else{
+            $('.sign_tel').css("border-bottom","2px solid #D550A2");
+        }
     });
     
 });

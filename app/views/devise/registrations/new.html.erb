@@ -6,7 +6,7 @@
         <div class="signup_1">
 
           <div class="field_s1">
-            <%= f.email_field :email, placeholder:"ID ( 이메일 형식 )" %>
+            <%= f.email_field :email, class:"sign_email",placeholder:"ID ( 이메일 형식 )" %>
           </div>
 
           <div class="field_s2">
@@ -32,7 +32,7 @@
           </div>
 
           <div class="field">
-            <%= f.text_field :phone , placeholder:"전화번호"%>
+            <%= f.text_field :phone , class:"sign_tel", placeholder:"전화번호 ( 숫자만 입력 )"%>
           </div>
           <div class="field f_gender">
             <%= f.radio_button :sex, "남성", class:"gender" ,id:"man"%>
