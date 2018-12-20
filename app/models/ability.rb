@@ -8,10 +8,8 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :personal
-      can [:index, :show, :new, :create], Creature
-      can [:edit, :update, :destroy], Creature, user_id:user.id
-      can [:index, :show, :category, :custom, :upvote, :filter], Content
-      can [:index, :show], Product
+      can [:index, :show, :custom, :upvote, :filter], Content
+      can [:index, :show, :custom, :filter], Product
     end
 
     # The first argument to `can` is the action you are giving the user

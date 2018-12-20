@@ -30,9 +30,11 @@
 
 **2018-12-17**
 - creature 추가
+- ...
 
 **2018-12-18**
 - 뷰 파일 수정 + 표시 데이터 세팅 (메인 메뉴 페이지들)
+- ...
 
 **2018-12-19**
 - Google Cloud Vision API 연동
@@ -40,18 +42,40 @@
 - mypouch 피부 특성 분석 Process 완성
 - mypouch index 페이지 데이터 세팅
 
+**2018-12-29**
+- 관리자 권한 설정
+- Register Validation
+- Google Vision Api 얼굴사진 여부 식별하기
+
 ### To-Do List
 - 태그에 링크 달기(나른한 하루 네이버 블로그 참고)
-- 얼굴사진이 아닐 시 알려주기..
 - Validation 적용하기
-- 관리자 권한 설정 추가: 일반 사용자 계정과 Admin 계정 구분 → rails Gem 사용하기
-- 카카오톡 & 페이스북 연동
+- 소셜 SNS 인증 연동 -> 카카오톡, 페이스북, 네이버 中 택2
 - 매뉴얼, 제품 삭제 시 S3 파일 삭제되게..
+- Ajax 통신 시도 해 볼 것 -> 매뉴얼, 제품, 댓글, 리뷰
+- Views 마다 노출 버튼 셋팅하기 (권한, 로그인 여부 등에 따른)
 
 ### 필수 준수 사항
-1. 들여쓰기 하기 (특히, HTML & CSS)
+1. 들여쓰기 하기
 -  들여쓰기 기준 => Tab 1회 / 스페이스바 금지
 
 ### 로컬로 이미지 저장되게 변경해 두었습니다.(재변경은 아래 링크로 따라가면서 주석 처리해 주시면 됩니다. 링크 참조)
 1. https://code.tutsplus.com/tutorials/rails-image-upload-using-carrierwave-in-a-rails-app--cms-25183
 2. /config/initializers/fog.rb 파일 생성하고 세팅하기 → https://blog.naver.com/kbs4674/221039105137
+
+### 오류 수정 과정
+**정규식**
+- 닉네임: http://dyang34.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%95%9C%EA%B8%80-%EC%98%81%EB%AC%B8-%EC%88%AB%EC%9E%90%EB%A7%8C-%EC%9E%85%EB%A0%A5-%EA%B0%80%EB%8A%A5-%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D
+- 휴대폰 번호: http://dev-jsh.tistory.com/2
+
+**이메일 중복 실시간 체크**
+- Ajax 통신 사용: https://stackoverflow.com/questions/38597357/is-there-any-way-to-validate-uniqueness-of-email-on-js-in-a-ruby-on-rails-app
+
+**Google Vision API**
+- 나른한 하루(네이버 블로그): https://blog.naver.com/kbs4674/221250727072
+- 정규 Docs: https://cloud.google.com/vision/docs/libraries?hl=ko
+- 설치해야 할 Gem: rmagick, google-cloud-vision
+
+**Gem rmagick 설치**
+- 리눅스: http://dev-jsh.tistory.com/2
+- Mac OS: http://morningbird.tistory.com/53

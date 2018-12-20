@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :delete, :custom]
+  # load_and_authorize_resource
 
   # 전역변수 초기화
   @@filter = ""
