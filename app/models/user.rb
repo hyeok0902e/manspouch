@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   # validation
   # validates :face, :presence => true
 
@@ -24,5 +25,15 @@ class User < ApplicationRecord
     self.face.remove! if self.face
     self.profile.remove! if self.profile
     self.save!
+  end
+
+  after_create :assign_default_role
+  def assign_default_role
+    emails = ['hyeok0902e@gmail.com', 'jduswls@gmail.com']
+    if emails.include?(self.email)
+      add_role(:admin)
+    else
+      add_role(:personal)
+    end
   end
 end

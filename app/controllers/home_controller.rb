@@ -41,4 +41,11 @@ class HomeController < ApplicationController
       end
     end
   end
+
+  # check email uniqueness in js whenever keypress
+  def check_email
+    email_found = User.where(email: params[:email]).count > 0 #Whatever your logic is to find duplicate emails
+    message = email_found ? "ERROR" : "SUCCESS"
+    render json: {message: message}
+  end
 end
