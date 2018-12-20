@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  # validation
+  validates :sex, :presence => true
+  validates :age, :presence => true
+  validates :phone, :presence => true
+  validates :profile, :presence => true
+
   rolify
   # validation
   # validates :face, :presence => true

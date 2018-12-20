@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   mount_uploader :thumb, ImageUploader # carrierwave
   belongs_to :user
   has_many :reviews, :dependent => :delete_all
+  resourcify
 
   after_create do
     product = Product.find_by(id: self.id)
