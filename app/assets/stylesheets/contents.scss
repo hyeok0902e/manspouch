@@ -3,9 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
+.con_tag{
+    margin-top:40px;
+    margin-left:14px;
+    font-weight: 600;
+    font-size:18px;
+    color:#646EAB;
+}
 .con_thumb{
-    margin-top:63px;
+    margin-top:23px;
+    width:100%;
+    height:120px;
+    border-bottom: 1px solid #D6D6D6;
 
     img{
         width:120px;
@@ -14,7 +23,35 @@
         box-shadow: 0 3px 20px rgba(0,0,0,0.16);
     }
 
-    div{
-        display: inline-block;
+    .con{
+        margin:0 10px 0 14px;
+        float:left;
+
+        .con_title{
+            font-weight: 100;
+            font-size:40px;
+            line-height:56px;
+        }
+
+        .con_s_title{
+            position: relative;
+            left:3px;
+            font-weight: 600;
+            font-size:18px;
+            color:#989898;
+        }
+    }
+
+    .con:last-child{
+        float:right;
+    }
+
+}
+.con_body{
+    padding:100px 80px;
+
+    img{
+        max-width: 1000px;
+        box-shadow: 0 3px 20px rgba(0,0,0,0.16);
     }
 }

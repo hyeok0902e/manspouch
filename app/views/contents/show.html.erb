@@ -1,32 +1,40 @@
 <article>
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <div class="con_thumb" >
-      
-
-      <img src="<%= @content.thumb.detail %>" alt="" />
-      <div>Title: <%= @content.title %></div>
-      <div>Subtitle: <%= @content.subtitle %></div>
+    <div class="con_tag">
+      <% @tags.each do |tag| %>
+      <span>#<%= tag.name %></span>&nbsp
+      <% end %>
     </div>
-  </p>
 
-  <article class="" style="border: 1px solid #555">
-    <h3>Body</h3>
-    <p>
+    <div class="con_thumb" >
+
+      <div class="con thumb1">
+        <img src="<%= @content.thumb.detail %>" alt="" />
+      </div>
+
+      <div class="con thumb2">
+        <div class="con_title"><%= @content.title %></div>
+        <div class="con_s_title"><%= @content.subtitle %></div>
+      </div>
+
+      <div class="con thumb3">
+        <div><%= link_to "Likes #{@content.get_upvotes.size}", like_content_path(@content), method: :put%></div>
+        <div>Views <%= @content.impressionist_count %></div >
+      </div>
+
+    </div>
+
+    <div class="con_body">
       <%= @content.body.html_safe%>
-    </p>
-    <p>
-      <%= link_to "Likes #{@content.get_upvotes.size}", like_content_path(@content), method: :put%>
-      <span>Views <%= @content.impressionist_count %></span>
-    </p>
-  </article>
+    </div>
+
+    <div><%= link_to "Likes #{@content.get_upvotes.size}", like_content_path(@content), method: :put%></div>
+    <div>Views <%= @content.impressionist_count %></div >
 
   <p>
     <h3>태그</h3>
-    <% @tags.each do |tag| %>
-      <span>#<%= tag.name %></span>&nbsp
-    <% end %>
+    
   </p>
 
   <%= link_to 'Edit', edit_content_path(@content) %> |
