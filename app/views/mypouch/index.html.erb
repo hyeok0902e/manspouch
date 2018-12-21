@@ -9,12 +9,15 @@
     <div class="skintype">피부타입: <%= @user.skintype %></div>
     <div class="skintype">페이스업 정도: <%= @user.usertype %></div>
     <div class="age">연령대: <%= @user.age %></div>
+
     <p style="color: red">
       키워드:
       <% @user.tags.each do |tag| %>
         <span>#<%= tag.name %></span>&nbsp
       <% end %>
     </p>
+
+    <%= link_to "Edit", edit_user_registration(@user) %>
   </div>
   <br>
 </article>
