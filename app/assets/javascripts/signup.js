@@ -1,6 +1,13 @@
 $(function () {
+    sign_c1 = 0;
+    sign_c2 = 0;
+    sign_c3 = 0;
+    sign_c4 = 0;
+    sign_c5 = 0;
+    sign_c6 = 0;
+    
 
-    $(".signin").keydown(function(e) {
+    $(".signup").keydown(function(e) {
         if (e.keyCode == 13){
             e.preventDefault();
             return false;
@@ -87,6 +94,26 @@ $(function () {
         else{
             $('.sign_next').slideUp(500);
         }
+
+        sign_r2 = sign_c4+sign_c5+sign_c6
+        if(sign_r2 == 3){
+            $('.sign_next1').slideDown(500);
+        }
+        else{
+            $('.sign_next1').slideUp(500);
+        }
+    });
+
+    $(document).click(function(e){
+
+        sign_r2 = sign_c4+sign_c5+sign_c6
+        if(sign_r2 == 3){
+            $('.sign_next1').slideDown(500);
+        }
+        else{
+            $('.sign_next1').slideUp(500);
+        }
+
     });
     
     $('.sign_next').click(function (e) { 
@@ -96,6 +123,15 @@ $(function () {
         $('.field').delay(500).fadeIn(500);    
         $('.signin_text').empty().append("<span>회원 가입</span><br>1단계 - <b>2단계 : 추가 회원정보</b> - 3단계" );
         $('.prettydropdown').css('display','inline-block');
+    });
+    
+    $('.sign_next1').click(function (e) { 
+        e.preventDefault();
+        
+        $('.signup_2').slideUp(500);    
+        $('.field1').delay(500).fadeIn(500);    
+        $('.actions').delay(500).fadeIn(500);    
+        $('.signin_text').empty().append("<span>회원 가입</span><br>1단계 - 2단계 - <b>3단계 : 프로필 등록</b>" );
     });
 
     $('.sign_nick').keyup(function (e) { 
@@ -116,7 +152,7 @@ $(function () {
             $('.sign_nick').css("border-bottom","2px solid #875AED");
             $('.fs41_error').slideUp(500);
             $('.fs4_error').slideUp(500);
-            sign_c4 = 0;
+            sign_c4 = 1;
         }
     });
 
@@ -137,6 +173,14 @@ $(function () {
         }
     });
 
-    $('.sign_select').prettyDropdown();
+    $('.sign_select').prettyDropdown({
+        width:150
+    });
+
+    $('.gender').click(function(){
+        sign_c6 = 1;
+    });
+    
+
     
 });
