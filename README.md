@@ -79,3 +79,8 @@
 **Gem rmagick 설치**
 - 리눅스: http://dev-jsh.tistory.com/2
 - Mac OS: http://morningbird.tistory.com/53
+
+### 참고자료
+- Rails 환경변수 설정: http://railsapps.github.io/rails-environment-variables.html
+- Social SNS 로그인: https://hcn1519.github.io/articles/2016-12/omniauth_devise_configuration
+- 페이스북 api 키 발급 방법: https://m.blog.naver.com/PostView.nhn?blogId=taglive&logNo=220642249212&proxyReferer=https%3A%2F%2Fwww.google.com%2F
