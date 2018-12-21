@@ -19,6 +19,7 @@ gem 'google-cloud-vision', '~> 0.27.0'
 gem 'rmagick', '~> 2.16'
 gem 'cancancan', '~> 2.3'
 gem 'rolify', '~> 5.2'
+gem 'faker', '~> 1.9', '>= 1.9.1'
 
 # install for local image storage
 gem 'mini_magick', '~> 4.3'

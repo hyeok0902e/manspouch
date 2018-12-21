@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
   def rank_of_products(products)
     @products = products.all.order("score desc")
-    @products = @products[0..5]
+    @products = @products[0..4]
   end
 
   def hottest(contents)
