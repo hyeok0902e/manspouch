@@ -1,38 +1,43 @@
-<p id="notice"><%= notice %></p>
+<article>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <h3>Thumbnail</h3>
-  <img src="<%= @content.thumb.detail %>" alt="" />
-</p>
-<h3>Title: <%= @content.title %></h3>
-<p>Subtitle: <%= @content.subtitle %></p>
+  <p>
+    <div class="con_thumb" >
+      
 
-<article class="" style="border: 1px solid #555">
-  <h3>Body</h3>
-  <p>
-    <%= @content.body.html_safe%>
+      <img src="<%= @content.thumb.detail %>" alt="" />
+      <div>Title: <%= @content.title %></div>
+      <div>Subtitle: <%= @content.subtitle %></div>
+    </div>
   </p>
+
+  <article class="" style="border: 1px solid #555">
+    <h3>Body</h3>
+    <p>
+      <%= @content.body.html_safe%>
+    </p>
+    <p>
+      <%= link_to "Likes #{@content.get_upvotes.size}", like_content_path(@content), method: :put%>
+      <span>Views <%= @content.impressionist_count %></span>
+    </p>
+  </article>
+
   <p>
-    <%= link_to "Likes #{@content.get_upvotes.size}", like_content_path(@content), method: :put%>
-    <span>Views <%= @content.impressionist_count %></span>
+    <h3>태그</h3>
+    <% @tags.each do |tag| %>
+      <span>#<%= tag.name %></span>&nbsp
+    <% end %>
   </p>
+
+  <%= link_to 'Edit', edit_content_path(@content) %> |
+  <%= link_to 'Destroy', @content, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  <hr>
+
+  <div class="">
+    <h3><%= @content.comments.count %> Comments</h3>
+    <%= render @content.comments %>
+    <h3>Add a Comment: </h3>
+    <%= render "comments/form" %>
+  </div>
 </article>
-
-<p>
-  <h3>태그</h3>
-  <% @tags.each do |tag| %>
-    <span>#<%= tag.name %></span>&nbsp
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Destroy', @content, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-<hr>
-
-<div class="">
-  <h3><%= @content.comments.count %> Comments</h3>
-  <%= render @content.comments %>
-  <h3>Add a Comment: </h3>
-  <%= render "comments/form" %>
-</div>
