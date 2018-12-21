@@ -177,6 +177,7 @@ footer{
 }
 
 .signin{
+    overflow: hidden;
     position: absolute;
     top:50%;
     left:50%;
@@ -257,7 +258,7 @@ footer{
     }
 
     .signup_2{
-        height:220px;
+        height:240px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -287,12 +288,27 @@ footer{
             cursor: pointer;
         }
 
-        .sign_select{
+        .prettydropdown{
             margin-top:10px;
         }
 
+        .sign_next1{
+            margin:10px auto;
+
+        }
 
 
     }
+
+    .signup_3{
+        height:220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        div{
+            display: none;
+        }
+    }
+    
     
 }
