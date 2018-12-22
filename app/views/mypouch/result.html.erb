@@ -1,4 +1,62 @@
-<h1>Mypouch#result</h1>
-<p><%= @user.nickname %>님의 피부타입은 <%= @user.skintype %>입니다.</p>
+<article class="">
+  <div class="">
+    <h3><%= @user.nickname %>님의 <span styke="color: red">피부특성 분석</span> 결과입니다.</h3>
+    <button><a href="<%= edit_user_registration_path(@user) %>"></a></button>
+  </div>
+  <div class="">
+    <div class="">피부 타입: <%= @user.skintype %></div>
+    <div class="">페이스업 정도: <%= @user.usertype %></div>
+    <div class="">연령: <%= @user.age %></div>
+  </div>
+  <div class="">
+    <p>
+      <% @user.tags.each do |tag| %>
+        <span>#<%= tag.name %></span>&nbsp
+      <% end %>
+    </p>
+  </div>
+</article>
+<br>
 
+<article>
+  <section>
+    <img src="<%= @user.face.main %>" alt="">
+  </section>
+  <br>
+
+  <!-- 추후 각 피부 타입에 따른 설명을 아래 if 문 안에 넣어줄 예정 -->
+  <% if @user.skintype == "건성" %>
+  <% elsif @user.skintype == "일반" %>
+  <% elsif @user.skintype == "지성" %>
+  <% elsif @user.skintype == "복합성" %>
+  <% else %>
+  <% end %>
+
+  <!-- 피부 타입에 따른 설명 예시 -->
+  <section>
+    <div class="">
+      <h4>1. 당신의 피부는? 건조함을 달고 사는 '건성피부' 타입</h4>
+      <p>
+        수분과 피지가 부족해 피부 표면이 메마르고 피부 당김이 심해 거칠거칠한 타입이에요.
+        모공이 섬세하기 때문에 잔주름이나 화장들뜸이 다른 피부타입에 비해 심한 편이랍니다.
+      </p>
+    </div>
+
+    <div class="">
+      <h4>2. 건성피부의 특징</h4>
+      <p>
+        수분 부족으로 인해 메마르고 거친 타입과 피지가 부족해 건조한 타입으로 나눌 수 있어요.
+        세안으로 인해 수분을 지나치게 빼앗기지 않도록 해야 하며, 보습효과가 큰 크림을 사용해 피부표면 수분을 적당히 유지시켜 주어야 합니다.
+      </p>
+    </div>
+
+    <div class="">
+      <h4>3. 건성피부의 관리법</h4>
+      <p>
+        건성피부일 경우 낮과 밤을 나눠 따로 관리해주는 것이 좋아요.
+        밤에는 아이메이크업을 오일 성분이 없는 리무버로 닦아내주세요. 역시나 자극 없는 세안제로 가볍게 마사지 한 후 미지근한 물로 15번 ~ 20번 세수! 씻어낸 물을 너무 말리지 않는 것이 중요하다.
+      </p>
+    </div>
+  </section>
+</article>
 <%= link_to '맞춤메뉴얼/맞춤제품 확인하기', '/mypouch/index'%>
