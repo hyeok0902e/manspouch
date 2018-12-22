@@ -9,87 +9,91 @@
 </nav>
 <nav class="m_sub_title_blank"></nav>
 
-<article class="custom">
-  <div class="">
-    <h3><%= current_user.nickname %>님의 <span>맞춤 매뉴얼</span>과 관심 <span>#키워드</span></h3>
-    <% if current_user.keyword != nil %>
-      <% tags = current_user.tags %>
-      <p>
-        [태그]
-        <% tags.each do |tag| %>
-          <span>#<%= tag.name %></span>&nbsp
-        <% end %>
-      </p>
-    <% else %>
-      <p>피부특성 분석을 진행해 보세요! <a href="/mypouch/face">바로가기</a></p>
-    <% end %>
-  </div>
-
-  <% @contents.each do |content| %>
-    <div class="" style="border: 1px solid #555">
-      <div class="">
-        <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
-      </div>
-
-      <div class="">
-        <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
-      </div>
-
-      <div class>
-        <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
-        <span>Views <%= content.impressionist_count %></span>
-      </div>
-
-      <div class="">
+<article class="custom" style="outline: 1px solid red;">
+  <section>
+    <div class="">
+      <h3><%= current_user.nickname %>님의 <span>맞춤 매뉴얼</span>과 관심 <span>#키워드</span></h3>
+      <% if current_user.keyword != nil %>
+        <% tags = current_user.tags %>
         <p>
-          <% tags = content.tags %>
-          <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+          [태그]
+          <% tags.each do |tag| %>
             <span>#<%= tag.name %></span>&nbsp
           <% end %>
         </p>
-      </div>
+      <% else %>
+        <p>피부특성 분석을 진행해 보세요! <a href="/mypouch/face">바로가기</a></p>
+      <% end %>
     </div>
-  <% end %>
+  </section>
+
+  <section>
+    <% @contents.each do |content| %>
+      <div class="" style="border: 1px solid #555">
+        <div class="">
+          <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+        </div>
+
+        <div class="">
+          <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
+        </div>
+
+        <div class>
+          <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
+          <span>Views <%= content.impressionist_count %></span>
+        </div>
+
+        <div class="">
+          <p>
+            <% tags = content.tags %>
+            <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+              <span>#<%= tag.name %></span>&nbsp
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </section>
 </article>
 
 <article class="index">
   <h3>트렌드 매뉴얼</h3>
-  <!-- 관련 js, css 코드는 filter_btn.js와 filter_btn.scss를 참고하세요! -->
-  <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">필터 ▼</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="/contents/filter/<%= 'hottest' %>">인기순</a>
-      <a href="/contents/filter/<%= 'latest' %>">최신순</a>
-    </div>
-  </div>
+  <nav>
+    <ul>
+      <li><a href="/contents/filter/<%= 'hottest' %>">인기순</a></li>
+      <li><a href="/contents/filter/<%= 'latest' %>">최신순</a></li>
+    </ul>
+  </nav>
 
-  <% @contents_normal.each do |content| %>
-    <div class="" style="border: 1px solid #555">
-      <div class="">
-        <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+  <section>
+    <% @contents_normal.each do |content| %>
+      <div class="" style="border: 1px solid #555">
+        <div class="">
+          <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+        </div>
+
+        <div class="">
+          <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
+        </div>
+
+        <div class>
+          <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
+          <span>Views <%= content.impressionist_count %></span>
+          <p class=""><%= time_ago_in_words(content.created_at) %> 전 [ <%= content.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
+
+        </div>
+
+        <div class="">
+          <p>
+            <% tags = content.tags %>
+            <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+              <span>#<%= tag.name %></span>&nbsp
+            <% end %>
+          </p>
+        </div>
       </div>
+    <% end %>
 
-      <div class="">
-        <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
-      </div>
-
-      <div class>
-        <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
-        <span>Views <%= content.impressionist_count %></span>
-        <p class=""><%= time_ago_in_words(content.created_at) %> 전 [ <%= content.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
-
-      </div>
-
-      <div class="">
-        <p>
-          <% tags = content.tags %>
-          <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
-            <span>#<%= tag.name %></span>&nbsp
-          <% end %>
-        </p>
-      </div>
-    </div>
-  <% end %>
-
-  <%= link_to 'New Content', new_content_path %>
+    <%= link_to 'New Content', new_content_path %>
+  </section>
 </article>

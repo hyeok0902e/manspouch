@@ -12,6 +12,7 @@ class MypouchController < ApplicationController
     @contents = []
     @products = []
 
+    # 맞춤 콘텐츠
     @contents_all.each do |content|
       if (content.category=="스킨케어") || (content.category=="페이스업")
         @contents << content
@@ -19,12 +20,16 @@ class MypouchController < ApplicationController
     end
     @contents = @contents[0..3]
 
+    # 맞춤 제품
     @products_all.each do |product|
       if (product.category=="스킨케어") || (product.category=="페이스업")
         @products << product
       end
     end
     @products = @products[0..3]
+
+    # 내가 쓴 Creature
+    @creatures = Creature.where(:user_id => current_user.id)
   end
 
   def face

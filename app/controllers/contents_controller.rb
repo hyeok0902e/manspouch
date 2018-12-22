@@ -73,6 +73,9 @@ class ContentsController < ApplicationController
     @@category = params[:category]
     if @@category == "all"
       @contents = Content.all
+      # 맞춤 알고리즘 넣기
+      #
+      @contents = @contents[0..11]
     else
       if @@category == "skincare"
         @cate_ko = "스킨케어"
@@ -84,16 +87,20 @@ class ContentsController < ApplicationController
         @cate_ko = "바디"
       end
       @contents = Content.where(:category => @cate_ko)
+      # 맞춤 알고리즘 넣기
+      #
+      @contents = @contents[0..11]
     end
 
+    @contents_filter = Content.all
     if @@filter != ""
       if @@filter == "latest"
-        @contents_normal = @contents.order("created_at DESC")
+        @contents_normal = @contents_filter.order("created_at DESC")
       elsif @@filter == "hottest"
-        hottest(@contents)
+        hottest(@contents_filter)
       end
     else
-      @contents_normal = @contents.order("created_at DESC")
+      @contents_normal = @contents_filter.order("created_at DESC")
     end
   end
 
