@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  
+  skip_before_filter :verify_authenticity_token, only: [:create]
+
   def create
     @content = Content.find(params[:content_id])
     @comment = @content.comments.create(params[:comment].permit(:body))

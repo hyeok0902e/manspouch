@@ -3,7 +3,11 @@
   <input type="hidden" name="authenticity_token" value="aoEtOXaS4AKwG/NxTe14ZUMLKIeKSYz6D7zA0C3CLxZB/wwMO4p87WJeejQmR8HMjJBvEeXCiSATeJ4k3t4rvw==">
   <div class="comment_add">
     <div class="field1">
-      <div class="cir"></div>
+      <div class="cir">
+        <% if user_signed_in? %>
+          <img src="<%= current_user.profile.profile %>" alt="">
+        <% end %>
+      </div>
     </div>
 
     <div class="field2">

@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  skip_before_filter :verify_authenticity_token, only: [:create]
+  
   def create
     @product = Product.find(params[:product_id])
     @review = @product.reviews.create(params[:review].permit(:body, :score))
