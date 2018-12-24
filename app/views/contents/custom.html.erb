@@ -94,7 +94,7 @@
         <div class="ct_likes">
           <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
           <span>Views <%= content.impressionist_count %></span>
-          <p class=""><%= time_ago_in_words(content.created_at) %> 전 [ <%= content.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
+          <!-- <p class=""><%= time_ago_in_words(content.created_at) %> 전</p> -->
 
         </div>
 
@@ -108,7 +108,6 @@
         </div>
       </div>
     <% end %>
-
-    <%= link_to 'New Content', new_content_path %>
   </section>
+    <%= link_to 'New Content', new_content_path %>
 </article>
