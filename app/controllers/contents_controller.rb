@@ -73,9 +73,8 @@ class ContentsController < ApplicationController
     @@category = params[:category]
     if @@category == "all"
       @contents = Content.all
-      # 맞춤 알고리즘 넣기
-      #
-      @contents = @contents[0..11]
+      # 맞춤 알고리즘
+      personalize(@contents)
     else
       if @@category == "skincare"
         @cate_ko = "스킨케어"
@@ -87,9 +86,8 @@ class ContentsController < ApplicationController
         @cate_ko = "바디"
       end
       @contents = Content.where(:category => @cate_ko)
-      # 맞춤 알고리즘 넣기
-      #
-      @contents = @contents[0..11]
+      # 맞춤 알고리즘
+      personalize(@contents)
     end
 
     @contents_filter = Content.all
@@ -153,6 +151,56 @@ class ContentsController < ApplicationController
       @contents_normal = []
       for i in 0..(@contentsArray.length-1)
         @contents_normal << Content.find(@contentsArray[i][1])
+      end
+    end
+
+    # personalize_contents
+    def personalize(contents)
+      @contentsArray = Array.new(contents.count){Array.new(2)}
+      index = 0
+      skintype = ""
+
+      @user = current_user
+      if @user.skintype == "건성"
+        skintype = "dry"
+      elsif @user.skintype == "일반"
+        skintype = "normal"
+      elsif @user.skintype == "지성"
+        skintype = "oily"
+      elsif @user.skintype == "복합성"
+        skintype = "complex"
+      elsif @user.skintype == "민감성"
+        skintype = "sensitive"
+      end
+
+      contents.each do |content|
+        @contentsArray[index][1] = content.id
+        @contentsArray[index][0] = 0
+
+        u_tags = @user.tags
+        c_tags = content.tags
+
+        c_tags.each do |c_tag|
+          if u_tags.include?(c_tag)
+            @contentsArray[index][0] += 1
+          end
+        end
+
+        index += 1
+      end
+
+      @contentsArray = @contentsArray.sort.reverse
+
+      @contents = []
+      for i in 1..(@contentsArray.count-1)
+        content = Content.find_by_id(@contentsArray[i][1])
+        if content[skintype] == true
+          @contents << content
+        end
+      end
+
+      if @contents.count >= 12
+        @contents = @contents[0..11]
       end
     end
 end
