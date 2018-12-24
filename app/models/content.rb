@@ -12,6 +12,7 @@ class Content < ApplicationRecord
   acts_as_votable
   is_impressionable
   resourcify
+  has_and_belongs_to_many :products
 
   after_create do
     content = Content.find_by(id: self.id)

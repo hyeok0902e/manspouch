@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_many :reviews, :dependent => :delete_all
   resourcify
+  has_and_belongs_to_many :contents
 
   after_create do
     product = Product.find_by(id: self.id)

@@ -17,6 +17,7 @@ class ContentsController < ApplicationController
   # GET /contents/1.json
   def show
     @tags = @content.tags
+    @products = @content.products
   end
 
   # GET /contents/new
@@ -32,9 +33,16 @@ class ContentsController < ApplicationController
   # POST /contents.json
   def create
     @content = current_user.contents.build(content_params)
+    alpha = ['a', 'b', 'c', 'd', 'e']
 
     respond_to do |format|
       if @content.save
+        for i in 0..4
+          if params["#{alpha[i]}"] != ""
+            product = Product.find_by_id(params["#{alpha[i]}"].to_i)
+            @content.products << product
+          end
+        end
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
         format.json { render :show, status: :created, location: @content }
       else
