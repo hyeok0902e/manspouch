@@ -33,15 +33,11 @@
 
 
 
-  <%= link_to 'Edit', edit_content_path(@content) %> |
-  <%= link_to 'Destroy', @content, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to '수정', edit_content_path(@content) %> /
+  <%= link_to '삭제', @content, method: :delete, data: { confirm: '정말 삭제하시겠습니까?' } %>
 
-  <hr>
-
-  <div class="">
-    <h3><%= @content.comments.count %> Comments</h3>
+    <div class="comment_num">댓글 <%= @content.comments.count %>개</div>
+    <div class="line"></div>
     <%= render @content.comments %>
-    <%# <h3>Add a Comment: </h3> %>
-    <%# <%= render "comments/form" %>
-  </div>
+    <%= render "comments/form" %>
 </article>

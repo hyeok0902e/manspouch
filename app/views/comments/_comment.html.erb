@@ -1,27 +1,22 @@
-<div class="">
-  <p class=""><strong><%= comment.user.nickname %></strong></p>
-  <p class=""><%= comment.body %></p>
-  <p class=""><%= time_ago_in_words(comment.created_at) %> 전 [ <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
-  <% if current_user == comment.user%>
-    <p>
-      <%= link_to 'Delete', [comment.content, comment],
+<div class="comment_view">
+  <div class="field11">
+    <div class="cir1"></div>
+  </div>
+
+  <div class="field22">
+    <div class="nick1"><b><%= comment.user.nickname %></b></div><br>
+    <%= comment.body %><br>
+    <div class="comment_time"><%= time_ago_in_words(comment.created_at) %> 전 [ <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %> ]</div>
+  </div>
+
+  <div class="field33">
+    <% if current_user == comment.user%>
+      <%= link_to '삭제', [comment.content, comment],
                     method: :delete,
                     class: "",
-                    data: { confirm: 'Are you sure?' }
+                    data: { confirm: '정말 삭제하시겠습니까?' }
       %>
-    </p>
-  <% end %>
-  <hr>
+    <% end %>
+  </div>
 <div>
-
- <%= form_for([@content, @content.comments.build]) do |f| %>
-  <p>
-    <div class="field">
-      <%= f.label :body %>
-      <%= f.text_field :body %>
-    </div>
-    <div class="field">
-      <%= f.submit %>
-    </div>
-  </p>
-<% end %>
+<div class="line"></div>
