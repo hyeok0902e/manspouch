@@ -71,6 +71,9 @@ class ProductsController < ApplicationController
     @@category = params[:category]
     if @@category == "all"
       @products = Product.all
+      # 맞춤 알고리즘 넣기
+      #
+      @products = @products[0..11]
     else
       if @@category == "skincare"
         @cate_ko = "스킨케어"
@@ -82,18 +85,22 @@ class ProductsController < ApplicationController
         @cate_ko = "바디"
       end
       @products = Product.where(:category => @cate_ko)
+      # 맞춤 알고리즘 넣기
+      #
+      @products = @products[0..11]
     end
 
+    @products_filter = Product.all
     if @@filter != ""
       if @@filter == "latest"
-        @products_normal = @products.order("created_at DESC")
+        @products_normal = @products_filter.order("created_at DESC")
       elsif @@filter == "hottest"
-        hottest(@products)
+        hottest(@products_filter)
       elsif @@filter == "price"
-        price(@products)
+        price(@products_filter)
       end
     else
-      @products_normal = @products.order('created_at DESC')
+      @products_normal = @products_filter.order('created_at DESC')
     end
   end
 

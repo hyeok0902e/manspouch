@@ -5,26 +5,31 @@
   </div>
   <br>
 
-  <div class="">
-    <div class="skintype">피부타입: <%= @user.skintype %></div>
-    <div class="skintype">페이스업 정도: <%= @user.usertype %></div>
-    <div class="age">연령대: <%= @user.age %></div>
+  <% if @user.skintype == nil %>
+    <%= link_to "나의 피부특성 분석하기", "/mypouch/face" %> <br>
+  <% else %>
+    <div class="">
+      <div class="skintype">피부타입: <%= @user.skintype %></div>
+      <div class="skintype">페이스업 정도: <%= @user.usertype %></div>
+      <div class="age">연령대: <%= @user.age %></div>
 
-    <p style="color: red">
-      키워드:
-      <% @user.tags.each do |tag| %>
-        <span>#<%= tag.name %></span>&nbsp
-      <% end %>
-    </p>
+      <p style="color: red">
+        키워드:
+        <% @user.tags.each do |tag| %>
+          <span>#<%= tag.name %></span>&nbsp
+        <% end %>
+      </p>
+      <%= link_to "다시 분석하기", "/mypouch/face" %> <br>
+      <%= link_to "Edit", edit_user_registration_path(@user) %>
+    </div>
+  <% end %>
 
-    <%= link_to "Edit", edit_user_registration_path(@user) %>
-  </div>
   <br>
 </article>
 
 <article>
   <section>
-    <h3>상위 맞춤매뉴얼 4개 </h3>
+    <h3>상위 맞춤매뉴얼 4개</h3>
     <a href="/contents/custom/<%= 'all' %>"><span>+더보기</span></a>
     <% @contents.each do |content| %>
       <div class="" style="border: 1px solid #555">
@@ -91,6 +96,35 @@
     <% end %>
   </section>
   <br>
+
+  <section>
+    <h3>내가 작성한 Creatures</h3>
+    <% @creatures.each do |creature| %>
+      <div class="" style="border: 1px solid #555">
+        <div class="">
+          <%= link_to image_tag(creature.thumb.main), creature_path(creature) %><!-- 썸네일 이미지 -->
+        </div>
+
+        <div class="">
+          <h3><span style="color:red;"><%= creature.category%></span> | <%= creature.title %></h3><!-- 타이틀이 노출됩니다. -->
+        </div>
+
+        <div class>
+          <%= link_to "Likes #{creature.get_upvotes.size}", like_creature_path(creature), method: :put %>
+          <span>Views <%= creature.impressionist_count %></span>
+        </div>
+
+        <div class="">
+          <p>
+            <% tags = creature.tags %>
+            <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+              <span>#<%= tag.name %></span>&nbsp
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </section>
 </article>
 
 <article>

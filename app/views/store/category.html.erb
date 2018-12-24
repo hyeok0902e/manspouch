@@ -9,14 +9,13 @@
 </nav>
 <nav class="m_sub_title_blank"></nav>
 
-<article class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">필터 ▼</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="/store/filter/<%= 'latest' %>">최신순</a>
-    <a href="/store/filter/<%= 'hottest' %>">인기순(리뷰 수)</a>
-    <a href="/store/filter/<%= 'price' %>">가격순</a>
-  </div>
-</article>
+<nav>
+  <ul>
+    <li><a href="/products/filter/<%= 'latest' %>">최신순</a></li>
+    <li><a href="/products/filter/<%= 'hottest' %>">인기순(리뷰 수)</a></li>
+    <li><a href="/products/filter/<%= 'price' %>">가격순</a></li>
+  </ul>
+</nav>
 
 <article>
   <% @products.each do |product| %>

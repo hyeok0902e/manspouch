@@ -57,6 +57,36 @@ task :add_contents => [:environment] do
   end
 end
 
+task :add_creatures => [:environment] do
+  users = User.all
+  (1..15).each do
+    user = users.sample
+    Creature.create({
+      :user_id => user.id,
+
+      :thumb => File.open(Rails.root + "sample1/1.jpg"),
+      :category => category.sample,
+      :title => Faker::Lorem.word,
+      :subtitle => Faker::Lorem.word,
+      :body => Faker::Lorem.paragraph,
+      :link => link.sample,
+      :keyword => keyword.sample,
+
+      :normal => bool.sample,
+      :dry => bool.sample,
+      :oily => bool.sample,
+      :complex => bool.sample,
+      :sensitive => bool.sample,
+
+      :notcare => bool.sample,
+      :basecare => bool.sample,
+      :hardcare => bool.sample,
+      :makeup => bool.sample,
+      :idol => bool.sample,
+      })
+  end
+end
+
 task :add_products => [:environment] do
   users = User.all
   (1..15).each do
