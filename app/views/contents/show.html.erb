@@ -19,8 +19,8 @@
       </div>
 
       <div class="con thumb3">
-        <div><%= link_to "Likes #{@content.get_upvotes.size}", like_content_path(@content), method: :put%></div>
-        <div>Views <%= @content.impressionist_count %></div >
+        <div class="btn_likes"><a href="<%= like_content_path(@content) %>" data-method="put"><div class="ico_heart"></div><%= @content.get_upvotes.size %></a></div>
+        <div class="btn_views"><div class="ico_views"></div> <%= @content.impressionist_count %></div>
       </div>
 
     </div>
@@ -29,13 +29,9 @@
       <%= @content.body.html_safe%>
     </div>
 
-    <div><%= link_to "Likes #{@content.get_upvotes.size}", like_content_path(@content), method: :put%></div>
-    <div>Views <%= @content.impressionist_count %></div >
+    <div class="btn_likes_bot"><a href="<%= like_content_path(@content) %>" data-method="put"><div class="ico_heart"></div><%= @content.get_upvotes.size %></a></div>
 
-  <p>
-    <h3>태그</h3>
-    
-  </p>
+
 
   <%= link_to 'Edit', edit_content_path(@content) %> |
   <%= link_to 'Destroy', @content, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -45,7 +41,7 @@
   <div class="">
     <h3><%= @content.comments.count %> Comments</h3>
     <%= render @content.comments %>
-    <h3>Add a Comment: </h3>
-    <%= render "comments/form" %>
+    <%# <h3>Add a Comment: </h3> %>
+    <%# <%= render "comments/form" %>
   </div>
 </article>

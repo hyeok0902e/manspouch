@@ -46,12 +46,81 @@
         float:right;
     }
 
+    .btn_likes{
+        border-radius: 50px;
+        border:1px solid #EA6378;
+        padding: 7px 0;
+        float: left;
+        margin:40px 10px 0 0;
+
+        a{
+            padding: 7px 25px;
+            color:#EA6378;
+
+            .ico_heart{
+                width: 18px;
+                height: 18px;
+                background : image-url('ico_heart_pink.png') no-repeat;
+                background-size: 100%;
+                display:inline-block;
+                position: relative;
+                top:3px;
+                margin-right:7px;
+            }
+        }
+    }
+
+    .btn_views{
+        border-radius: 50px;
+        border:1px solid #333;
+        padding: 7px 25px;
+        text-align: center;
+        float: left;
+        margin-top:40px;
+
+        .ico_views{
+            width: 23px;
+            height: 18px;
+            background : image-url('ico_view.png') no-repeat;
+            background-size: 100%;
+            display:inline-block;
+            position: relative;
+            top:6px;
+            margin-right:7px;
+        }
+    }
+
 }
 .con_body{
-    padding:100px 80px;
+    padding:90px 80px;
 
     img{
         max-width: 1000px;
         box-shadow: 0 3px 20px rgba(0,0,0,0.16);
+    }
+}
+
+.btn_likes_bot{
+    width:90px;
+    margin:0 auto;
+    border-radius: 50px;
+    border:1px solid #EA6378;
+    padding: 7px 0;
+    text-align: center;
+
+    a{
+        padding: 7px 25px;
+        color:#EA6378;
+
+        .ico_heart{
+            width: 18px;
+            height: 18px;
+            background : image-url('ico_heart_pink.png') no-repeat;
+            background-size: 100%;
+            display:inline-block;
+            position: relative;
+            top:3px;
+            margin-right:7px;
+        }
     }
 }
