@@ -36,8 +36,10 @@
   <%= link_to '수정', edit_content_path(@content) %> /
   <%= link_to '삭제', @content, method: :delete, data: { confirm: '정말 삭제하시겠습니까?' } %>
 
-    <div class="comment_num">댓글 <%= @content.comments.count %>개</div>
-    <div class="line"></div>
-    <%= render @content.comments %>
-    <%= render "comments/form" %>
+  <div class="comment_num">댓글 <%= @content.comments.count %>개</div>
+  <div class="line"></div>
+
+  <%= render "comments/form" %>
+  <%= render @content.comments %>
+
 </article>

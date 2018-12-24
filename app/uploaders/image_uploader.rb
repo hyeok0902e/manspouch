@@ -9,9 +9,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :detail do
     process :resize_to_fit => [800, 10000]
   end
+  version :profile do
+      process :resize_to_fill => [100, 100], :if => :horizontal? # 4:3비율, 이미지가 가로일 때
+      process :resize_to_fill => [100, 100], :if => :vertical? # 4:3비율, 이미지가 세로일 때
+  end
   version :main do
       process :resize_to_fill => [240, 180], :if => :horizontal? # 4:3비율, 이미지가 가로일 때
-      process :resize_to_fill => [240, 320], :if => :vertical? # 4:3비율, 이미지가 세로일 때
+      process :resize_to_fill => [240, 180], :if => :vertical? # 4:3비율, 이미지가 세로일 때
   end
 
   def horizontal?(new_file)

@@ -1,13 +1,21 @@
-<%= form_for([@content, @content.comments.build]) do |f| %>
+<form action="/contents/<%= @content.id %>/comments" method="post">
+  <input name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="authenticity_token" value="aoEtOXaS4AKwG/NxTe14ZUMLKIeKSYz6D7zA0C3CLxZB/wwMO4p87WJeejQmR8HMjJBvEeXCiSATeJ4k3t4rvw==">
   <div class="comment_add">
     <div class="field1">
-      <div class="cir"></div>
+      <div class="cir">
+        <% if user_signed_in? %>
+          <img src="<%= current_user.profile.profile %>" alt="">
+        <% end %>
+      </div>
     </div>
+
     <div class="field2">
-      <%= f.text_field :body, placeholder:"댓글을 적어주세요!"  %>
+      <input placeholder="댓글을 적어주세요!" type="text" name="comment[body]" id="comment_body">
     </div>
+
     <div class="field3">
-      <%= f.submit%>
+      <input type="submit" name="commit" value="등록" data-disable-with="등록">
     </div>
   </div>
-<% end %>
+</form>

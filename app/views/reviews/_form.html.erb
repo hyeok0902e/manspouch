@@ -1,19 +1,21 @@
-<%= form_for([@product, @product.reviews.build]) do |f| %>
-  <p>
-    <div class="field" style="margin-bottom:-10px;">
-      <div id="star-rating"></div>
-    </div>
+<form class="new_review" id="new_review" action="/products/14/reviews" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓" />
+  <input type="hidden" name="authenticity_token" value="vUqv07FO7jlpdN3dtd09dpmo0pUCZrTjObvV5bXWP4hEaJ3JYztLiN2FFIDkjhiZD2IbgjlhOmlUMzw4fmObaA==" />
 
-    <div class="field">
-      <%= f.label :body %>
-      <%= f.text_field :body %>
-    </div>
+  <div class="field" style="margin-bottom:-10px;">
+    <div id="star-rating"></div>
+  </div>
 
-    <div class="field">
-      <%= f.submit %>
-    </div>
-  </p>
-<% end %>
+  <div class="field">
+    <label for="review_body">Body</label>
+    <input type="text" name="review[body]" id="review_body">
+  </div>
+
+  <div class="field">
+    <input type="submit" name="commit" value="등록" data-disable-with="등록">
+  </div>
+
+</form>
 
 <script>
   $('#star-rating').raty({

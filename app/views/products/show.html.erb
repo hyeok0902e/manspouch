@@ -27,9 +27,10 @@
 
 <div class="">
   <h3><%= @product.reviews.count %> Reviews</h3>
-  <%= render @product.reviews %>
   <h3>Add a Review: </h3>
   <%= render "reviews/form" %>
+
+  <%= render @product.reviews %>
 </div>
 
 <script>
