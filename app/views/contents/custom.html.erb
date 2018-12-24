@@ -17,17 +17,22 @@
         <div class="in2"><%= current_user.nickname %>님을 위한 맞춤 매뉴얼</div>
       </div>
 
-      <% if current_user.keyword != nil %>
-        <% tags = current_user.tags %>
-        <p>
-          [태그]
-          <% tags.each do |tag| %>
-            <span>#<%= tag.name %></span>&nbsp
+      <div class="line"></div>
+      
+      <div class="i2">
+        <div class="in1">태그        </div>
+        
+        <div class="in2">
+          <% if current_user.keyword != nil %>
+            <% tags = current_user.tags %>
+            <% tags.each do |tag| %>
+              <span>#<%= tag.name %></span>&nbsp
+            <% end %>
+          <% else %>
+            <p>피부특성 분석을 진행해 보세요! <a href="/mypouch/face">바로가기</a></p>
           <% end %>
-        </p>
-      <% else %>
-        <p>피부특성 분석을 진행해 보세요! <a href="/mypouch/face">바로가기</a></p>
-      <% end %>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -63,33 +68,37 @@
 </article>
 
 <article class="index">
-  <h3>트렌드 매뉴얼</h3>
-  <nav>
+  <div class="i1">
+    <div class="in1">트렌드</div>
+    <div class="in2">지금 가장 뜨거운 트렌드를 보여드립니다.</div>
+  </div>
+  <div class="line"></div>
+  <nav class="i2">
     <ul>
       <li><a href="/contents/filter/<%= 'hottest' %>">인기순</a></li>
       <li><a href="/contents/filter/<%= 'latest' %>">최신순</a></li>
     </ul>
   </nav>
 
-  <section>
+  <section class="trend">
     <% @contents_normal.each do |content| %>
-      <div class="" style="border: 1px solid #555">
-        <div class="">
+      <div class="content_all">
+        <div class="ct_thumb">
           <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
         </div>
 
-        <div class="">
+        <div class="ct_title">
           <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
         </div>
 
-        <div class>
+        <div class="ct_likes">
           <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
           <span>Views <%= content.impressionist_count %></span>
           <p class=""><%= time_ago_in_words(content.created_at) %> 전 [ <%= content.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
 
         </div>
 
-        <div class="">
+        <div class="ct_keyword">
           <p>
             <% tags = content.tags %>
             <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
