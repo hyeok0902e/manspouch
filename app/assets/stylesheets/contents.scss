@@ -102,7 +102,7 @@
 
 .btn_likes_bot{
     width:90px;
-    margin:0 auto;
+    margin:0 auto 50px;
     border-radius: 50px;
     border:1px solid #EA6378;
     padding: 7px 0;
@@ -123,4 +123,89 @@
             margin-right:7px;
         }
     }
+}
+
+.comment_add{
+    padding-top:38px;
+    height:90px;
+    border-bottom: 1px solid #D6D6D6;
+
+    .field1{
+        text-align: center;
+        width:140px;
+        height:100px;
+        float:left;
+
+        .cir{
+            background:#333;
+            width:40px;
+            height:40px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+    }
+    .field2{
+        float: left;
+        height:100px;
+
+        input[type="text"]{
+            width:815px;
+        }
+    }
+    .field3{
+        float: left;
+        width:195px;
+        height:100px;
+        text-align: center;
+
+        input[type="submit"]{
+            cursor: pointer;
+            border:0;
+            width:95px;
+            height:34px;
+            font-size:14px;
+            background:#EDEDED;
+            border-radius: 50px;
+            display:inline-block;
+        }
+    }
+}
+
+
+.comment_view{
+    .field11{
+        width:140px;
+        float:left;
+        text-align: center;
+        margin-top:15px;
+
+        .cir1{
+            background:#333;
+            width:40px;
+            height:40px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+    }
+    .field22{
+        width:890px;
+        float: left;
+        margin-top:20px;
+
+        .comment_time{
+            color:#C7C7C7;
+        }
+    }
+    .field33{
+        margin-left:15px;
+        width:100px;
+        min-height:120px;
+        display : inline-block;
+        margin-top:20px;
+    }
+}
+
+.comment_num{
+    float:right;
+    color:#c7c7c7;
 }

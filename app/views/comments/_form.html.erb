@@ -1,11 +1,13 @@
 <%= form_for([@content, @content.comments.build]) do |f| %>
-  <p>
-    <div class="field">
-      <%= f.label :body %>
-      <%= f.text_field :body %>
+  <div class="comment_add">
+    <div class="field1">
+      <div class="cir"></div>
     </div>
-    <div class="field">
-      <%= f.submit %>
+    <div class="field2">
+      <%= f.text_field :body, placeholder:"댓글을 적어주세요!"  %>
     </div>
-  </p>
+    <div class="field3">
+      <%= f.submit%>
+    </div>
+  </div>
 <% end %>

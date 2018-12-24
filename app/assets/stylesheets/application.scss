@@ -24,6 +24,7 @@ input[type="password"]:hover,input[type="text"]:hover,input[type="email"]:hover 
 input[type="password"]:focus,input[type="text"]:focus,input[type="email"]:focus { border-bottom:2px solid #6B46EA; transition:.5s; outline: none;}
 input:-webkit-autofill{  box-shadow: 0 0 0 30px #fff inset ; -webkit-text-fill-color: #000; }
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active{ transition: background-color 5000s ease-in-out s; }
+.line { margin:10px 0;width:100%;height:1px;border-bottom: 1px solid #D6D6D6;}
 // 기본값
 
 .container {
