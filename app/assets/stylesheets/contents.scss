@@ -79,6 +79,13 @@
     flex-wrap:wrap;
     justify-content: space-between;
 
+    .ct_thumb{
+        img{
+            width:340px;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.16);
+        }
+    }
+
     .ct_keyword{
         margin-bottom:30px;
     }
