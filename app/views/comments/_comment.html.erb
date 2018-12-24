@@ -4,13 +4,21 @@
   </div>
 
   <div class="field22">
-    <div class="nick1"><b><%= comment.user.nickname %></b></div><br>
-    <%= comment.body %><br>
-    <div class="comment_time"><%= time_ago_in_words(comment.created_at) %> 전 [ <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %> ]</div>
+    <div class="nick1">
+      <b><%= comment.user.nickname %></b>
+    </div>
+    <br>
+
+    <%= comment.body %>
+    <br>
+
+    <div class="comment_time">
+      <%= time_ago_in_words(comment.created_at) %> 전 [ <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %> ]
+    </div>
   </div>
 
   <div class="field33">
-    <% if current_user == comment.user%>
+    <% if current_user == comment.user %>
       <%= link_to '삭제', [comment.content, comment],
                     method: :delete,
                     class: "",
@@ -19,4 +27,5 @@
     <% end %>
   </div>
 <div>
+
 <div class="line"></div>

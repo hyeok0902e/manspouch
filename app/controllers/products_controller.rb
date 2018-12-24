@@ -71,9 +71,8 @@ class ProductsController < ApplicationController
     @@category = params[:category]
     if @@category == "all"
       @products = Product.all
-      # 맞춤 알고리즘 넣기
-      #
-      @products = @products[0..11]
+      # 맞춤 알고리즘
+      personalize(@products)
     else
       if @@category == "skincare"
         @cate_ko = "스킨케어"
@@ -85,9 +84,8 @@ class ProductsController < ApplicationController
         @cate_ko = "바디"
       end
       @products = Product.where(:category => @cate_ko)
-      # 맞춤 알고리즘 넣기
-      #
-      @products = @products[0..11]
+      # 맞춤 알고리즘
+      personalize(@products)
     end
 
     @products_filter = Product.all
@@ -156,6 +154,55 @@ class ProductsController < ApplicationController
       @products_normal = []
       for i in 0..(@productsArray.length-1)
         @products_normal << Product.find(@productsArray[i][1])
+      end
+    end
+
+    def personalize(products)
+      @productsArray = Array.new(products.count){Array.new(2)}
+      index = 0
+      skintype = ""
+
+      @user = current_user
+      if @user.skintype == "건성"
+        skintype = "dry"
+      elsif @user.skintype == "일반"
+        skintype = "normal"
+      elsif @user.skintype == "지성"
+        skintype = "oily"
+      elsif @user.skintype == "복합성"
+        skintype = "complex"
+      elsif @user.skintype == "민감성"
+        skintype = "sensitive"
+      end
+
+      products.each do |product|
+        @productsArray[index][1] = product.id
+        @productsArray[index][0] = 0
+
+        u_tags = @user.tags
+        p_tags = product.tags
+
+        p_tags.each do |p_tag|
+          if u_tags.include?(p_tag)
+            @productsArray[index][0] += 1
+          end
+        end
+
+        index += 1
+      end
+
+      @productsArray = @productsArray.sort.reverse
+
+      @products = []
+      for i in 1..(@productsArray.count-1)
+        product = Product.find_by_id(@productsArray[i][1])
+        if product[skintype] == true
+          @products << product
+        end
+      end
+
+      if @products.count >= 12
+        @products = @products[0..11]
       end
     end
 end
