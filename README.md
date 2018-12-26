@@ -51,6 +51,9 @@
 - 맞춤 알고리즘
 - 콘텐츠/제품 상세페이지에서 관련 제품/콘텐츠 엮기
 
+**2018-12-26**
+-
+
 ### To-Do List
 - Validation 적용하기
 - 소셜 SNS 인증 연동 -> 카카오톡, 페이스북, 네이버 中 택2
@@ -88,3 +91,5 @@
 - Rails 환경변수 설정: http://railsapps.github.io/rails-environment-variables.html
 - Social SNS 로그인: https://hcn1519.github.io/articles/2016-12/omniauth_devise_configuration
 - 페이스북 api 키 발급 방법: https://m.blog.naver.com/PostView.nhn?blogId=taglive&logNo=220642249212&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+- 네이버 애널리틱스 등록: https://analytics.naver.com/
+- 구글 애널리틱스 등록: https://analytics.google.com
