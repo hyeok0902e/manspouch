@@ -4,8 +4,10 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :profile %>
-    <%= f.file_field :profile, accept: 'image/png image/gif image/jpg' %>
+    <%= f.label :profile %><br>  
+    <img id="profile_img" src="<%= current_user.profile.main %>" alt="">
+    <img style="display: none;" class="" id="profile_img_prev" src="#" alt="profile_img" />
+    <%= f.file_field :profile, accept: 'image/png image/gif image/jpg', onchange: "readURL(this);" %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -64,3 +66,23 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#profile_img_prev')
+          .attr('src', e.target.result)
+          .css('display', 'block')
+          .width(200);
+          // .height(200);
+
+          $('#profile_img')
+          .css('display', 'none');
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
