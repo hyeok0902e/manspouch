@@ -1,0 +1,37 @@
+<table>  
+  <tbody>
+    <tr>
+      <td><p>ID</p></td>
+      <td><p>콘텐츠명</p></td>
+      <td><p>부제</p></td>
+      <td><p>링크</p></td>
+      <td><p>카테고리</p></td>
+      <td><p>키워드</p></td>
+      <td><p>created_at</p></td>
+      <td><p>upadted_at</p></td>
+      <td><p>작성자</p></td>
+      <td><p>관리</p></td>
+    </tr>
+
+      <% @contents.each do |content| %>
+        <tr>
+          <td><%= content.id %></td>
+          <td><%= content.title %></td>
+          <td><%= content.subtitle %></td>
+          <td><%= content.link %></td>
+          <td><%= content.category %></td>
+          <td><%= content.keyword %></td>
+          <td><%= content.created_at %></td>
+          <td><%= content.updated_at %></td>
+          <td><%= content.user.nickname %></td>
+          <td><%= link_to 'Show', content %>
+              <%= link_to 'Edit', edit_content_path(content) %>
+              <%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr> 
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Content', new_content_path %>

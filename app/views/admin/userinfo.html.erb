@@ -1,0 +1,33 @@
+<table>  
+  <tbody>
+    <tr>
+      <td><p>ID</p></td>
+      <td><p>Email</p></td>
+      <td><p>Nickname</p></td>
+      <td><p>Phone number</p></td>
+      <td><p>Sex</p></td>
+      <td><p>Age</p></td>
+      <td><p>Skintype</p></td>
+      <td><p>Usertype</p></td>
+      <td><p>created_at</p></td>
+      <td><p>updated_at</p></td>
+      <td><p>관리</p></td>
+    </tr>
+
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.nickname %></td>
+          <td><%= user.phone%></td>
+          <td><%= user.sex %></td>
+          <td><%= user.age %></td>
+          <td><%= user.skintype %></td>
+          <td><%= user.usertype %></td>
+          <td><%= user.created_at %></td>
+          <td><%= user.updated_at %></td>
+          <td></td>
+        </tr> 
+      <% end %>
+  </tbody>
+</table>

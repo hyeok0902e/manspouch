@@ -1,0 +1,37 @@
+<table>  
+  <tbody>
+    <tr>
+      <td><p>ID</p></td>
+      <td><p>콘텐츠명</p></td>
+      <td><p>부제</p></td>
+      <td><p>링크</p></td>
+      <td><p>카테고리</p></td>
+      <td><p>키워드</p></td>
+      <td><p>created_at</p></td>
+      <td><p>upadted_at</p></td>
+      <td><p>작성자</p></td>
+      <td><p>관리</p></td>
+    </tr>
+
+      <% @creatures.each do |creature| %>
+        <tr>
+          <td><%= creature.id %></td>
+          <td><%= creature.title %></td>
+          <td><%= creature.subtitle %></td>
+          <td><%= creature.link %></td>
+          <td><%= creature.category %></td>
+          <td><%= creature.keyword %></td>
+          <td><%= creature.created_at %></td>
+          <td><%= creature.updated_at %></td>
+          <td><%= creature.user.nickname %></td>
+          <td><%= link_to 'Show', creature %>
+              <%= link_to 'Edit', edit_content_path(creature) %>
+              <%= link_to 'Destroy', creature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr> 
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Creature', new_creature_path %>

@@ -24,7 +24,7 @@
 config/database.yml
 
 # Ignore aws key & fog file
-config/application.yml
+# config/application.yml
 config/initializers/fog.rb
 public/uploads/*
 

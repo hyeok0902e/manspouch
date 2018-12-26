@@ -1,46 +1,22 @@
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <tr>
-      <td>
-        <p>제품명</p>
-      </td>
-      <td>
-        <p>브랜드</p>
-      </td>
-      <td>
-        <p>가격</p>
-      </td>
-      <td>
-        <p>링크</p>
-      </td>
-      <td>
-        <p>키워드</p>
-      </td>
-      <td>
-        <p>스코어</p>
-      </td>   
-      <td>
-        <p>created_at</p>
-      </td>
-      <td>
-        <p>upadted_at</p>
-      </td>
-      <td>
-        <p>작성자</p>
-      </td>
-      <td>
-        <p>관리</p>
-      </td>
+      <td><p>ID</p></td>
+      <td><p>제품명</p></td>
+      <td><p>브랜드</p></td>
+      <td><p>가격</p></td>
+      <td><p>링크</p></td>
+      <td><p>키워드</p></td>
+      <td><p>스코어</p></td>   
+      <td><p>created_at</p></td>
+      <td><p>upadted_at</p></td>
+      <td><p>작성자</p></td>
+      <td><p>관리</p></td>
     </tr>
 
       <% @products.each do |product| %>
         <tr>
+          <td><%= product.id %></td>          
           <td><%= product.name %></td>
           <td><%= product.brand %></td>
           <td><%= product.price %></td>
