@@ -51,13 +51,15 @@
 - 맞춤 알고리즘
 - 콘텐츠/제품 상세페이지에서 관련 제품/콘텐츠 엮기
 
+**2018-12-26**
+- 회원가입 시 프로필사진 보이게..
+- 구글 analystics: AWS 런칭후 script 소스만 삽입하면 됨(google, naver), 추 후 애널리틱스 프로그램 공부 필요
+
 ### To-Do List
 - Validation 적용하기
 - 소셜 SNS 인증 연동 -> 카카오톡, 페이스북, 네이버 中 택2
 - Ajax 통신 시도 해 볼 것 -> 매뉴얼, 제품, 댓글, 리뷰
 - Views 마다 노출 버튼 셋팅하기 (권한, 로그인 여부 등에 따른)
-- 회원가입 시 프로필사진 보이게..
-- 구글 analystics
 
 ### 필수 준수 사항
 1. 들여쓰기 하기
@@ -88,3 +90,5 @@
 - Rails 환경변수 설정: http://railsapps.github.io/rails-environment-variables.html
 - Social SNS 로그인: https://hcn1519.github.io/articles/2016-12/omniauth_devise_configuration
 - 페이스북 api 키 발급 방법: https://m.blog.naver.com/PostView.nhn?blogId=taglive&logNo=220642249212&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+- 네이버 애널리틱스 등록: https://analytics.naver.com/
+- 구글 애널리틱스 등록: https://analytics.google.com

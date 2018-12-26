@@ -50,15 +50,16 @@ Rails.application.routes.draw do
   end
   get 'creatures/category/:category' => "creatures#category"
 
-  # mpadmin
-  get 'mpadmin/index'
-  get 'mpadmin/mpusers'
-  get 'mpadmin/mpusershow'
-  get 'mpadmin/contents'
-  get 'mpadmin/products'
+  # Admin
+  get 'admin/index' => "admin#index"
+  get 'admin/userinfo' => "admin#userinfo"
+  get 'admin/contentinfo' => "admin#contentinfo"
+  get 'admin/productinfo' => "admin#productinfo"
+  get 'admin/creatureinfo' => "admin#creatureinfo"
 
   # tinymce
   post '/tinymce_assets' => 'tinymce_assets#create'
+
 
 
 end
