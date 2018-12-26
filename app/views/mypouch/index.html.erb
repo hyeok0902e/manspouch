@@ -7,6 +7,7 @@
 
   <% if @user.skintype == nil %>
     <%= link_to "나의 피부특성 분석하기", "/mypouch/face" %> <br>
+    <%= link_to "Edit", edit_user_registration_path(@user) %>
   <% else %>
     <div class="">
       <div class="skintype">피부타입: <%= @user.skintype %></div>
@@ -19,6 +20,7 @@
           <span>#<%= tag.name %></span>&nbsp
         <% end %>
       </p>
+
       <%= link_to "다시 분석하기", "/mypouch/face" %> <br>
       <%= link_to "Edit", edit_user_registration_path(@user) %>
     </div>
@@ -27,75 +29,78 @@
   <br>
 </article>
 
+
 <article>
-  <section>
-    <h3>상위 맞춤매뉴얼 4개</h3>
-    <a href="/contents/custom/<%= 'all' %>"><span>+더보기</span></a>
-    <% @contents.each do |content| %>
-      <div class="" style="border: 1px solid #555">
-        <div class="">
-          <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
-        </div>
+  <% if @user.skintype != nil %>
+    <section>
+      <h3>상위 맞춤매뉴얼 4개</h3>
+      <a href="/contents/custom/<%= 'all' %>"><span>+더보기</span></a>
+      <% @contents.each do |content| %>
+        <div class="" style="border: 1px solid #555">
+          <div class="">
+            <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+          </div>
 
-        <div class="">
-          <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
-        </div>
+          <div class="">
+            <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
+          </div>
 
-        <div class>
-          <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
-          <span>Views <%= content.impressionist_count %></span>
-          <p class=""><%= time_ago_in_words(content.created_at) %> 전 [ <%= content.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
-        </div>
+          <div class>
+            <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
+            <span>Views <%= content.impressionist_count %></span>
+            <p class=""><%= time_ago_in_words(content.created_at) %> 전 [ <%= content.created_at.strftime('%Y-%m-%d %H:%M') %> ]</p>
+          </div>
 
-        <div class="">
-          <p>
-            <% tags = content.tags %>
-            <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+          <div class="">
+            <p>
+              <% tags = content.tags %>
+              <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
+                <span>#<%= tag.name %></span>&nbsp
+              <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </section>
+    <br>
+
+    <section>
+      <h3>상위 맞춤제품 4개</h3>
+      <a href="/products/custom/<%= 'all' %>"><span>+더보기</span></a>
+      <% @products.each do |product| %>
+        <div class="" style="border: 1px solid #555">
+          <div class="">
+            <span><%= product.category %></span>
+            <%= link_to image_tag(product.thumb.main), product_path(product) %><!-- 썸네일 이미지 -->
+          </div>
+          <div class="">
+            <h3><%= product.name %>(<%= product.brand %>)</h3>
+            <%
+              price = product.price.to_s
+              price_string = ""
+              if price.length == 4
+                price_string = price[0] + "," + price[1..3]
+              elsif price.length == 5
+                price_string = price[0..1] + "," + price[2..4]
+              elsif price.length == 6
+                price_string = price[0..2] + "," + price[3..5]
+              end
+            %>
+            <h5>가격: <%= price_string %>원</h5>
+          </div>
+          <div class=""><%= product.score %></div>
+
+          <div class="">
+            <% tags = product.tags %>
+            <% tags.each do |tag| %>
               <span>#<%= tag.name %></span>&nbsp
             <% end %>
-          </p>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </section>
-  <br>
-
-  <section>
-    <h3>상위 맞춤제품 4개</h3>
-    <a href="/products/custom/<%= 'all' %>"><span>+더보기</span></a>
-    <% @products.each do |product| %>
-      <div class="" style="border: 1px solid #555">
-        <div class="">
-          <span><%= product.category %></span>
-          <%= link_to image_tag(product.thumb.main), product_path(product) %><!-- 썸네일 이미지 -->
-        </div>
-        <div class="">
-          <h3><%= product.name %>(<%= product.brand %>)</h3>
-          <%
-            price = product.price.to_s
-            price_string = ""
-            if price.length == 4
-              price_string = price[0] + "," + price[1..3]
-            elsif price.length == 5
-              price_string = price[0..1] + "," + price[2..4]
-            elsif price.length == 6
-              price_string = price[0..2] + "," + price[3..5]
-            end
-          %>
-          <h5>가격: <%= price_string %>원</h5>
-        </div>
-        <div class=""><%= product.score %></div>
-
-        <div class="">
-          <% tags = product.tags %>
-          <% tags.each do |tag| %>
-            <span>#<%= tag.name %></span>&nbsp
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </section>
-  <br>
+      <% end %>
+    </section>
+    <br>
+  <% end %>
 
   <section>
     <h3>내가 작성한 Creatures</h3>

@@ -9,31 +9,48 @@
 </nav>
 <nav class="m_sub_title_blank"></nav>
 
-<article class="custom" style="outline: 1px solid red">
+
+<article class="custom">
   <section>
-    <h3><%= current_user.nickname %>님의 <span>맞춤 제품</span>과 관심 <span>#키워드</span></h3>
-    <% if current_user.keyword != nil %>
-      <% tags = current_user.tags %>
-      <p>
-        [태그]
-        <% tags.each do |tag| %>
-          <span>#<%= tag.name %></span>&nbsp
-        <% end %>
-      </p>
-    <% else %>
-      <p>피부특성 분석을 진행해 보세요! <a href="/mypouch/face">바로가기</a></p>
-    <% end %>
+    <div class="content_main1">
+      <div class="i1">
+        <div class="in1">맞춤</div>
+        <div class="in2"><%= current_user.nickname %>님을 위한 맞춤 제품</div>
+      </div>
+
+      <div class="line"></div>
+      
+      <div class="i2">
+        <div class="in1">태그</div>
+        
+        <div class="in2">
+          <% if current_user.keyword != nil %>
+            <% tags = current_user.tags %>
+            <% tags.each do |tag| %>
+              <span>#<%= tag.name %></span>&nbsp
+            <% end %>
+          <% else %>
+            <p>피부특성 분석을 진행해 보세요! <a href="/mypouch/face">바로가기</a></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <div class="slide_btn">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+
   <% if current_user.skintype != nil %>
-    <section>
+    <section class="trend1">
       <% @products.each do |product| %>
-        <div class="" style="border: 1px solid #555">
-          <div class="">
-            <span><%= product.category %></span>
+        <div class="pd_trend">
+          <div class="ct_thumb">
+            <div class="ct_title_cat"><%= product.category %></div>
             <%= link_to image_tag(product.thumb.main), product_path(product) %><!-- 썸네일 이미지 -->
           </div>
-          <div class="">
+          <div class="ct_title">
             <h3><%= product.name %>(<%= product.brand %>)</h3>
             <%
     					price = product.price.to_s
@@ -49,7 +66,7 @@
             <h5>가격: <%= price_string %>원</h5>
           </div>
           <div class=""><%= product.score %>(<%= product.reviews.count %>개)</div>
-          <div class="">
+          <div class="ct_keyword">
             <% tags = product.tags %>
             <% tags.each do |tag| %>
               <span>#<%= tag.name %></span>&nbsp

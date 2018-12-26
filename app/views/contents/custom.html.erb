@@ -20,7 +20,7 @@
       <div class="line"></div>
       
       <div class="i2">
-        <div class="in1">태그        </div>
+        <div class="in1">태그</div>
         
         <div class="in2">
           <% if current_user.keyword != nil %>
@@ -43,16 +43,19 @@
           <div class="ct_thumb">
             <div class="ct_title_cat"><%= content.category%></div>
             <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+            <div class="ct_title_likes"><div class="ico_heart_w"></div><%= link_to "#{content.get_upvotes.size}", like_content_path(content), method: :put %></div>
+            
           </div>
 
           <div class="ct_title">
-             / <%= content.title %><!-- 타이틀이 노출됩니다. -->
+             <%= content.title %><!-- 타이틀이 노출됩니다. -->
           </div>
 
+          <!--
           <div class="ct_likes">
-            <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
             <span>Views <%= content.impressionist_count %></span>
           </div>
+          -->
 
           <div class="ct_keyword">
             <p>
@@ -87,17 +90,11 @@
         <div class="ct_thumb">
           <div class="ct_title_cat"><%= content.category%></div>
           <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
+          <div class="ct_title_likes"><div class="ico_heart_w"></div><%= link_to "#{content.get_upvotes.size}", like_content_path(content), method: :put %></div>
         </div>
 
         <div class="ct_title">
           <%= content.title %><!-- 타이틀이 노출됩니다. -->
-        </div>
-
-        <div class="ct_likes">
-          <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
-          <span>Views <%= content.impressionist_count %></span>
-          <!-- <p class=""><%= time_ago_in_words(content.created_at) %> 전</p> -->
-
         </div>
 
         <div class="ct_keyword">
