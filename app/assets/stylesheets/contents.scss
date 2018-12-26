@@ -65,6 +65,7 @@
             li{
                 margin:30px 10px;
                 display:inline-block;
+                font-weight:500;
             }
             li:last-child{
                 margin-right:30px;
@@ -84,13 +85,17 @@
     }
     
     .ct_title{
+        width:340px;
+        margin-top:10px;
+        font-weight:700;
+        font-size:18px;
     }
 
     .ct_thumb{
         .ct_title_cat{
             margin-top:-33px;
             position: relative;
-            top:45px;
+            top:46px;
             left:13px;
             background:rgba(0,0,0,0.7);
             width:70px;
@@ -101,6 +106,20 @@
             padding-top: 20px;
             font-size:14px;
         }
+        .ct_title_likes{
+            margin-top:-28px;
+            position: relative;
+            top:-10px;
+            left:15px;
+            width:50px;
+            text-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+            a{
+                color:white;
+                font-weight: 600;
+            }
+
+        }
+
         img{
             width:340px;
             box-shadow: 0 3px 20px rgba(0,0,0,0.16);
@@ -108,7 +127,12 @@
     }
 
     .ct_keyword{
+        width:340px;
         margin-bottom:30px;
+        overflow: hidden;
+        color:#646EAB;
+        font-size:15px;
+        font-weight: 500;
     }
 }
 
@@ -167,17 +191,6 @@
         a{
             padding: 7px 25px;
             color:#EA6378;
-
-            .ico_heart{
-                width: 18px;
-                height: 18px;
-                background : image-url('ico_heart_pink.png') no-repeat;
-                background-size: 100%;
-                display:inline-block;
-                position: relative;
-                top:3px;
-                margin-right:7px;
-            }
         }
     }
 
@@ -202,6 +215,29 @@
     }
 
 }
+
+.ico_heart{
+    width: 18px;
+    height: 18px;
+    background : image-url('ico_heart_pink.png') no-repeat;
+    background-size: 100%;
+    display:inline-block;
+    position: relative;
+    top:3px;
+    margin-right:7px;
+}
+
+.ico_heart_w{
+    width: 18px;
+    height: 18px;
+    background : image-url('ico_heart_white.png') no-repeat;
+    background-size: 100%;
+    display:inline-block;
+    position: relative;
+    top:3px;
+    margin-right:7px;
+}
+
 .con_body{
     padding:90px 80px;
 
