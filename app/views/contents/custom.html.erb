@@ -37,23 +37,24 @@
   </section>
 
   <% if current_user.skintype != nil %>
-    <section>
+    <section class="trend">
       <% @contents.each do |content| %>
-        <div class="" style="border: 1px solid #555">
-          <div class="">
+        <div>
+          <div class="ct_thumb">
+            <div class="ct_title_cat"><%= content.category%></div>
             <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
           </div>
 
-          <div class="">
-            <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
+          <div class="ct_title">
+             / <%= content.title %><!-- 타이틀이 노출됩니다. -->
           </div>
 
-          <div class>
+          <div class="ct_likes">
             <%= link_to "Likes #{content.get_upvotes.size}", like_content_path(content), method: :put %>
             <span>Views <%= content.impressionist_count %></span>
           </div>
 
-          <div class="">
+          <div class="ct_keyword">
             <p>
               <% tags = content.tags %>
               <% tags.each do |tag| %><!--키워드 전체가 노출됩니. -->
@@ -84,11 +85,12 @@
     <% @contents_normal.each do |content| %>
       <div class="content_all">
         <div class="ct_thumb">
+          <div class="ct_title_cat"><%= content.category%></div>
           <%= link_to image_tag(content.thumb.main), content_path(content) %><!-- 썸네일 이미지 -->
         </div>
 
         <div class="ct_title">
-          <h3><span style="color:red;"><%= content.category%></span> | <%= content.title %></h3><!-- 타이틀이 노출됩니다. -->
+          <%= content.title %><!-- 타이틀이 노출됩니다. -->
         </div>
 
         <div class="ct_likes">
