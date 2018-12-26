@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @tags = @product.tags
+    @contents = @product.contents
   end
 
   # GET /products/new
@@ -31,9 +32,16 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = current_user.products.build(product_params)
+    alpha = ['a', 'b', 'c', 'd', 'e']
 
     respond_to do |format|
       if @product.save
+        for i in 0..4
+          if params["#{alpha[i]}"] != ""
+            content = Content.find_by_id(params["#{alpha[i]}"].to_i)
+            @product.contents << content
+          end
+        end
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else

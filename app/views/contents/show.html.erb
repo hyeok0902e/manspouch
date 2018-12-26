@@ -31,7 +31,11 @@
 
     <div class="btn_likes_bot"><a href="<%= like_content_path(@content) %>" data-method="put"><div class="ico_heart"></div><%= @content.get_upvotes.size %></a></div>
 
-
+    <div class="">
+      <% @products.each do |product| %>
+        <%= product.name %>
+      <% end %>
+    </div>
 
   <%= link_to '수정', edit_content_path(@content) %> /
   <%= link_to '삭제', @content, method: :delete, data: { confirm: '정말 삭제하시겠습니까?' } %>

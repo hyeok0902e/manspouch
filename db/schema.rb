@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181220013716) do
+ActiveRecord::Schema.define(version: 20181224085944) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20181220013716) do
     t.datetime "updated_at",               null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_contents_on_user_id", using: :btree
+  end
+
+  create_table "contents_products", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "content_id"
+    t.integer "product_id"
+    t.index ["content_id"], name: "index_contents_products_on_content_id", using: :btree
+    t.index ["product_id"], name: "index_contents_products_on_product_id", using: :btree
   end
 
   create_table "contents_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -243,6 +250,8 @@ ActiveRecord::Schema.define(version: 20181220013716) do
 
   add_foreign_key "comments", "contents"
   add_foreign_key "comments", "users"
+  add_foreign_key "contents_products", "contents"
+  add_foreign_key "contents_products", "products"
   add_foreign_key "contents_tags", "contents"
   add_foreign_key "contents_tags", "tags"
   add_foreign_key "creatures_tags", "creatures"
