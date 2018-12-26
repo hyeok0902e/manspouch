@@ -76,10 +76,31 @@
 .trend{
     padding:0 30px;
     display:flex;
-    flex-wrap:wrap;
-    justify-content: space-between;
+    flex-flow:row wrap;
+    margin-left:17px;
+
+    div{
+        margin-right:10px;
+    }
+    
+    .ct_title{
+    }
 
     .ct_thumb{
+        .ct_title_cat{
+            margin-top:-33px;
+            position: relative;
+            top:45px;
+            left:13px;
+            background:rgba(0,0,0,0.7);
+            width:70px;
+            height:26px;
+            text-align: center;
+            color:white;
+            font-weight: 600;
+            padding-top: 20px;
+            font-size:14px;
+        }
         img{
             width:340px;
             box-shadow: 0 3px 20px rgba(0,0,0,0.16);
