@@ -1,4 +1,4 @@
-class tinyimgsController < ApplicationController
+class TinyimgsController < ApplicationController
   def new
     @tinyimg = Tinyimg.build.params(tinyimg_params)
   end
