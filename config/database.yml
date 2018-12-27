@@ -12,12 +12,14 @@ default: &default
 
 development:
   <<: *default
-  database: manspouchtestdb
+  database: manspouchtest
 
 test:
   <<: *default
-  database: manspouchtestdb
+  database: manspouchtest
 
 production:
   <<: *default
-  database: manspouchtestdb
+  database: manspouchtest
+  username: root
+  password: manspouch1234
