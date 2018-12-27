@@ -12,5 +12,9 @@ class TinyimgsController < ApplicationController
   def tinyimg_params
     if parmas[]
     params.require(:tinyimg).permit(:file, :hint, :alt, :all_notice_id)
+    end
   end
+
+
+
 end
