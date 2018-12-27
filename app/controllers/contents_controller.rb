@@ -78,7 +78,36 @@ class ContentsController < ApplicationController
 
   # 맞춤 콘텐츠
   def custom
+    @@category = params[:category]
+    if @@category == "all"
+      @contents = Content.all
+      # 맞춤 알고리즘
+      personalize(@contents)
+    else
+      if @@category == "skincare"
+        @cate_ko = "스킨케어"
+      elsif @@category == "faceup"
+        @cate_ko = "페이스업"
+      elsif @@category == "hair"
+        @cate_ko = "헤어"
+      else
+        @cate_ko = "바디"
+      end
+      @contents = Content.where(:category => @cate_ko)
+      # 맞춤 알고리즘
+      personalize(@contents)
+    end
 
+    @contents_filter = Content.all
+    if @@filter != ""
+      if @@filter == "latest"
+        @contents_normal = @contents_filter.order("created_at DESC")
+      elsif @@filter == "hottest"
+        hottest(@contents_filter)
+      end
+    else
+      @contents_normal = @contents_filter.order("created_at DESC")
+    end
   end
 
   def filter
