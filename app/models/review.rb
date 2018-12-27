@@ -22,7 +22,7 @@ class Review < ApplicationRecord
     # 평균 계산하기
     if rate_sum != 0
       @rate_avr = rate_sum.to_f / product.reviews.count
-    elsif
+    else
       @rate_avr = 0
     end
 
