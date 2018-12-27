@@ -95,7 +95,6 @@ class ContentsController < ApplicationController
       @contents = Content.where(:category => @cate_ko)
       # 맞춤 알고리즘
       personalize(@contents)
-  end
 
     @contents_filter = Content.all
     if @@filter != ""
