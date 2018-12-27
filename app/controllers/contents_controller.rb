@@ -82,7 +82,7 @@ class ContentsController < ApplicationController
     if @@category == "all"
       @contents = Content.all
       # 맞춤 알고리즘
-      # personalize(@contents)
+      personalize(@contents)
     else
       if @@category == "skincare"
         @cate_ko = "스킨케어"
