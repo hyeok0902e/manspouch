@@ -83,18 +83,21 @@ class ContentsController < ApplicationController
       @contents = Content.all
       # 맞춤 알고리즘
       personalize(@contents)
-    elsif @@category == "skincare"
+    else{
+      if @@category == "skincare"
         @cate_ko = "스킨케어"
-    elsif @@category == "faceup"
+      elsif @@category == "faceup"
         @cate_ko = "페이스업"
-    elsif @@category == "hair"
+      elsif @@category == "hair"
         @cate_ko = "헤어"
-    else
+      else
         @cate_ko = "바디"
-    end
+      end
+    }
       @contents = Content.where(:category => @cate_ko)
       # 맞춤 알고리즘
       personalize(@contents)
+    end
 
     @contents_filter = Content.all
     if @@filter != ""
