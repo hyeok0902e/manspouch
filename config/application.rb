@@ -15,3 +15,10 @@ module Manspouch
     config.time_zone = 'Seoul'
   end
 end
+
+
+config.assets.initialize_on_precompile = false
+config.cache_classes = true
+config.serve_static_assets = true
+config.assets.compile = true
+config.assets.digest = true

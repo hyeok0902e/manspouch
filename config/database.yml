@@ -21,5 +21,3 @@ test:
 production:
   <<: *default
   database: manspouchtest
-  username: root
-  password: manspouch1234
