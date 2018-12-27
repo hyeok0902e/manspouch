@@ -83,7 +83,7 @@ class ContentsController < ApplicationController
       @contents = Content.all
       # 맞춤 알고리즘
       personalize(@contents)
-    else{
+    else
       if @@category == "skincare"
         @cate_ko = "스킨케어"
       elsif @@category == "faceup"
@@ -93,7 +93,6 @@ class ContentsController < ApplicationController
       else
         @cate_ko = "바디"
       end
-    }
       @contents = Content.where(:category => @cate_ko)
       # 맞춤 알고리즘
       personalize(@contents)
