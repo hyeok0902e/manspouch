@@ -3,7 +3,7 @@ default: &default
   pool: 5
   timeout: 5000
 
-  host: manspouchtestdb.crq3wu1eydju.ap-northeast-2.rds.amazonaws.com
+  host: manspouchtest.crq3wu1eydju.ap-northeast-2.rds.amazonaws.com
   port: 3306
   encoding: utf8
   username: root
