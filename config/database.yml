@@ -8,16 +8,16 @@ default: &default
   encoding: utf8
   username: root
   password: manspouch1234
-  socket: /tmp/mysql.sock
+  # socket: /tmp/mysql.sock
 
 development:
   <<: *default
-  database: manspouchtest
+  database: manspouchtestdb
 
 test:
   <<: *default
-  database: manspouchtest
+  database: manspouchtestdb
 
 production:
   <<: *default
-  database: manspouchtest
+  database: manspouchtestdb
