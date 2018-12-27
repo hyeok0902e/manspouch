@@ -7,7 +7,7 @@ default: &default
   port: 3306
   encoding: utf8
   username: root
-  password: manspouch1234
+  password: <%= ENV['SUMMERFOLD_DATABASE_PASSWORD'] %>
   socket: /tmp/mysql.sock
 
 development:
