@@ -14,12 +14,7 @@ module Manspouch
     config.i18n.default_locale = :ko
     config.time_zone = 'Seoul'
 
-    
-    config.assets.initialize_on_precompile = false
-	config.cache_classes = true
-	config.serve_static_assets = true
-	config.assets.compile = true
-	config.assets.digest = true
+
   end
 end
 
