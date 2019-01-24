@@ -32,3 +32,9 @@ public/uploads/*
 google/*
 
 # img file
+
+# Ignore application configuration
+/config/application.yml
+
+# image_uploader
+/app/uploaders/image_uploader.rb
