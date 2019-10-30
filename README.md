@@ -1,10 +1,12 @@
 # MASNPOUCH WEB VER 1.0
 # START 2018.12.12
+- 런칭 웹 주소: http://manspouch.com/
 
 # 프레임워크
 - RubyOnRails
 # 프론트엔드
 - jQuery, Javascript
+
 
 ### 날짜별 진행 상황
 **2018-12-12**
