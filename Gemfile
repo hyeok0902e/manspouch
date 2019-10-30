@@ -22,7 +22,7 @@ gem 'rolify', '~> 5.2'
 gem 'faker', '~> 1.9', '>= 1.9.1'
 
 # install for local image storage
-gem 'mini_magick', '~> 4.3'
+gem 'mini_magick', '~> 4.9'
 
 # install for AWS image storage
 # gem 'fog', '~> 2.1'
