@@ -1,6 +1,11 @@
 # MASNPOUCH WEB VER 1.0
 # START 2018.12.12
 
+# 프레임워크
+- RubyOnRails
+# 프론트엔드
+- jQuery, Javascript
+
 ### 날짜별 진행 상황
 **2018-12-12**
 - 데이터베이스 세팅: Gem → mysql2, 세팅 파일 → config/databse.yml
