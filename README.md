@@ -1,4 +1,4 @@
-https://img.shields.io/badge/Node-12.7.0-lightgre.svg
+
 # MASNPOUCH WEB VER 1.0
 # START 2018.12.12
 - 런칭 웹 주소: http://manspouch.com/
