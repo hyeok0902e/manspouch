@@ -7,7 +7,7 @@ end
 
 # installed Gems
 gem 'mysql2', '~> 0.5.2'
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.7'
 gem 'tinymce-rails', '~> 4.1', '>= 4.1.10'
 gem 'tinymce-rails-langs', '~> 4.20180103'
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
